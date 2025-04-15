@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://j1ma5rxusc3a"]
+
+[ext_resource type="Texture2D" uid="uid://c1pkhbnw222vf" path="res://assets/desktop/screenbase2.png" id="1_rr3bk"]
+[ext_resource type="Texture2D" uid="uid://0rnigdxrct2y" path="res://assets/desktop/windows_logo-removebg-preview.png" id="2_ix3cy"]
+[ext_resource type="Texture2D" uid="uid://btdwff3bkqura" path="res://assets/desktop/this_pc-removebg-preview.png" id="3_4lg8a"]
+[ext_resource type="Texture2D" uid="uid://cumveq1av631r" path="res://assets/desktop/savefile-removebg-preview.png" id="4_lqrjl"]
+[ext_resource type="Texture2D" uid="uid://v4j7c3uc8iia" path="res://assets/desktop/explorer-removebg-preview.png" id="5_ovy4p"]
+[ext_resource type="Texture2D" uid="uid://bgkomtpl0ncwr" path="res://assets/desktop/trashbin-removebg-preview.png" id="6_spy8b"]
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_rr3bk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -61.0
+offset_right = 241.0
+offset_bottom = -21.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="WinLogo" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ix3cy")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_4lg8a")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_lqrjl")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ovy4p")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 612.0
+offset_top = 470.0
+offset_right = 692.0
+offset_bottom = 538.0
+texture = ExtResource("6_spy8b")
