@@ -8,6 +8,9 @@ extends Node
 @onready var spawn_6 = $"../Markers/Spawn6"
 
 @onready var markers = [spawn_1, spawn_2, spawn_3, spawn_4, spawn_5, spawn_6]
+@onready var timer = $"../Timer"
+@onready var progress_bar = $"../ProgressBar"
+
 var ad_scenes = [
 	preload("res://Scenes/ad_1.tscn"),
 	preload("res://Scenes/ad_2.tscn"),
@@ -17,9 +20,22 @@ var ad_scenes = [
 	preload("res://Scenes/ad_6.tscn")
 ]
 
+var total_time := 10.0  
+var max_ads;
+func _process(delta):
+	if timer.time_left > 0:
+		if(max_ads == 0):
+			timer.stop()
+		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
+	else:
+		progress_bar.value = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	max_ads = ad_scenes.size();
+	progress_bar.min_value = 0
+	progress_bar.max_value = 100
+	timer.start(total_time)
 	spawn_ad()
 
 # Function to spawn an ad inside the defined area
@@ -30,10 +46,18 @@ func spawn_ad():
 	shuffled_ads.shuffle()
 
 	for i in range(min(shuffled_markers.size(), shuffled_ads.size())):
-		var ad = shuffled_ads[i].instantiate()
+		var ad: Node2D = shuffled_ads[i].instantiate()
 		ad.global_position = shuffled_markers[i].global_position
+		ad.ad_closed.connect(_on_ad_closed)
+		ad.z_index = i
 		add_child(ad)
 	
 
-
-
+func _on_ad_closed():
+	max_ads -= 1
+	print("Ad closed! Remaining ads:", max_ads)
+	
+func _on_timer_timeout():
+	if(max_ads != 0):
+		print("ISTEKLO BRM")
+	pass # Replace with function body.

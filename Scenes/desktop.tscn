@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://j1ma5rxusc3a"]
+[gd_scene load_steps=11 format=3 uid="uid://j1ma5rxusc3a"]
 
 [ext_resource type="Texture2D" uid="uid://c1pkhbnw222vf" path="res://assets/desktop/screenbase2.png" id="1_rr3bk"]
 [ext_resource type="Texture2D" uid="uid://0rnigdxrct2y" path="res://assets/desktop/windows_logo-removebg-preview.png" id="2_ix3cy"]
@@ -8,7 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://bgkomtpl0ncwr" path="res://assets/desktop/trashbin-removebg-preview.png" id="6_spy8b"]
 [ext_resource type="Script" path="res://Scripts/AdSpawner.gd" id="7_5ua8q"]
 
-[node name="Node" type="Node"]
+[sub_resource type="Animation" id="Animation_jmray"]
+length = 0.1
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_xjycy"]
+length = 15.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_keoa3"]
+_data = {
+"odbrojavanje": SubResource("Animation_xjycy"),
+"stop": SubResource("Animation_jmray")
+}
+
+[node name="MonitorGame" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -73,3 +87,32 @@ position = Vector2(506, 249)
 
 [node name="Spawn6" type="Marker2D" parent="Markers"]
 position = Vector2(238, 396)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.5
+offset_top = -105.0
+offset_right = 312.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 15.0
+value = 15.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_keoa3")
+}
+
+[connection signal="timeout" from="Timer" to="Ads" method="_on_timer_timeout"]
