@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu4ogagdw0ngq"]
+
+[ext_resource type="Script" path="res://Scripts/Ad.gd" id="1_7wd3v"]
+[ext_resource type="Texture2D" uid="uid://b0od37rpm08u4" path="res://assets/ads/AD5.png" id="2_yoxgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg63v"]
+size = Vector2(34, 20)
+
+[node name="Ad5" type="Node2D"]
+script = ExtResource("1_7wd3v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yoxgx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(132, -111)
+shape = SubResource("RectangleShape2D_gg63v")
+
+[connection signal="input_event" from="Area2D" to="." method="ad5_event"]

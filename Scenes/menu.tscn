@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://da4b7r4l5casl" path="res://assets/audio/mouseclick.mp3" id="6_xlipt"]
 [ext_resource type="Texture2D" uid="uid://dsmmxcojnajxc" path="res://assets/menu/mute.png" id="7_4w7d2"]
 [ext_resource type="Script" path="res://Scripts/Mute.gd" id="8_c8djh"]
-[ext_resource type="Script" path="res://Scenes/AudioStreamPlayer.gd" id="10_q6oko"]
+[ext_resource type="Script" path="res://Scripts/AudioStreamPlayer.gd" id="10_q6oko"]
 
 [sub_resource type="Animation" id="Animation_5ywlx"]
 length = 2.0
