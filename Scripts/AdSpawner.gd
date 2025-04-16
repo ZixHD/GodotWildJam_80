@@ -12,12 +12,12 @@ extends Node
 @onready var progress_bar = $"../ProgressBar"
 
 var ad_scenes = [
-	preload("res://Scenes/ad_1.tscn"),
-	preload("res://Scenes/ad_2.tscn"),
-	preload("res://Scenes/ad_3.tscn"),
-	preload("res://Scenes/ad_4.tscn"),
-	preload("res://Scenes/ad_5.tscn"),
-	preload("res://Scenes/ad_6.tscn")
+	preload("res://Scenes/ads/ad_1.tscn"),
+	preload("res://Scenes/ads/ad_2.tscn"),
+	preload("res://Scenes/ads/ad_3.tscn"),
+	preload("res://Scenes/ads/ad_4.tscn"),
+	preload("res://Scenes/ads/ad_5.tscn"),
+	preload("res://Scenes/ads/ad_6.tscn")
 ]
 
 var total_time := 10.0  

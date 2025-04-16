@@ -1,0 +1,138 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck25ir4khvoef"]
+
+[ext_resource type="Texture2D" uid="uid://cua0uuyuf13t0" path="res://assets/paper clip/pozadina.png" id="1_0ece6"]
+[ext_resource type="Script" path="res://Scripts/PaperclipBox.gd" id="2_xgd64"]
+[ext_resource type="Script" path="res://Scripts/PaperClipSpawner.gd" id="3_2wcl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btei7"]
+
+[node name="PaperClip" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0ece6")
+
+[node name="RedBox1" type="TextureRect" parent="."]
+offset_left = 99.0
+offset_top = 98.0
+offset_right = 153.0
+offset_bottom = 191.0
+script = ExtResource("2_xgd64")
+
+[node name="Panel" type="Panel" parent="RedBox1"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 54.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_btei7")
+
+[node name="RedBox2" type="TextureRect" parent="."]
+offset_left = 153.0
+offset_top = 98.0
+offset_right = 207.0
+offset_bottom = 191.0
+script = ExtResource("2_xgd64")
+
+[node name="Panel" type="Panel" parent="RedBox2"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 54.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_btei7")
+
+[node name="BlueBox1" type="TextureRect" parent="."]
+offset_left = 307.0
+offset_top = 99.0
+offset_right = 361.0
+offset_bottom = 192.0
+script = ExtResource("2_xgd64")
+
+[node name="Panel" type="Panel" parent="BlueBox1"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 54.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_btei7")
+
+[node name="BlueBox2" type="TextureRect" parent="."]
+offset_left = 370.0
+offset_top = 99.0
+offset_right = 422.0
+offset_bottom = 192.0
+script = ExtResource("2_xgd64")
+
+[node name="Panel" type="Panel" parent="BlueBox2"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 61.0
+offset_right = 113.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_btei7")
+
+[node name="GreenBox1" type="TextureRect" parent="."]
+offset_left = 513.0
+offset_top = 99.0
+offset_right = 567.0
+offset_bottom = 192.0
+script = ExtResource("2_xgd64")
+
+[node name="Panel" type="Panel" parent="GreenBox1"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 54.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_btei7")
+
+[node name="GreenBox2" type="TextureRect" parent="."]
+offset_left = 582.0
+offset_top = 99.0
+offset_right = 636.0
+offset_bottom = 192.0
+script = ExtResource("2_xgd64")
+
+[node name="Panel" type="Panel" parent="GreenBox2"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 54.0
+offset_bottom = 93.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_btei7")
+
+[node name="Markers" type="Node" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Markers"]
+position = Vector2(59, 346)
+
+[node name="Spawn2" type="Marker2D" parent="Markers"]
+position = Vector2(155, 411)
+
+[node name="Spawn3" type="Marker2D" parent="Markers"]
+position = Vector2(483, 387)
+
+[node name="Spawn4" type="Marker2D" parent="Markers"]
+position = Vector2(584, 330)
+
+[node name="Spawn5" type="Marker2D" parent="Markers"]
+position = Vector2(370, 314)
+
+[node name="Spawn6" type="Marker2D" parent="Markers"]
+position = Vector2(274, 370)
+
+[node name="PaperClips" type="Node" parent="."]
+script = ExtResource("3_2wcl8")

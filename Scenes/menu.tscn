@@ -151,7 +151,6 @@ script = ExtResource("8_c8djh")
 unique_name_in_owner = true
 stream = ExtResource("6_xlipt")
 volume_db = -20.0
-pitch_scale = 0.5
 script = ExtResource("10_q6oko")
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/TextureButton" to="TextureRect/VBoxContainer/TextureButton" method="_on_pressed_play"]

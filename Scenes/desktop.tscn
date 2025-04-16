@@ -8,12 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://bgkomtpl0ncwr" path="res://assets/desktop/trashbin-removebg-preview.png" id="6_spy8b"]
 [ext_resource type="Script" path="res://Scripts/AdSpawner.gd" id="7_5ua8q"]
 
-[sub_resource type="Animation" id="Animation_jmray"]
-length = 0.1
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_xjycy"]
 length = 15.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_jmray"]
+length = 0.1
 loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_keoa3"]
