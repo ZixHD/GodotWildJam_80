@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/TextureButton.gd" id="3_1yfih"]
 [ext_resource type="Texture2D" uid="uid://dmeyw22v6c0wt" path="res://assets/menu/PlayQuitANIMS/playANIM2.png" id="3_rcd7s"]
 [ext_resource type="Texture2D" uid="uid://47vpd6uwir50" path="res://assets/menu/PlayQuitANIMS/quitANIM2.png" id="5_txfa0"]
-[ext_resource type="AudioStream" uid="uid://da4b7r4l5casl" path="res://assets/audio/mouseclick.mp3" id="6_xlipt"]
+[ext_resource type="AudioStream" uid="uid://bsfq2gqlffixe" path="res://assets/audio/mouseclick.mp3" id="6_xlipt"]
 [ext_resource type="Texture2D" uid="uid://dsmmxcojnajxc" path="res://assets/menu/mute.png" id="7_4w7d2"]
 [ext_resource type="Script" path="res://Scripts/Mute.gd" id="8_c8djh"]
 [ext_resource type="Script" path="res://Scripts/AudioStreamPlayer.gd" id="10_q6oko"]
