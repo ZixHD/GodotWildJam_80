@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk8lcv0bngid"]
+
+[ext_resource type="Texture2D" uid="uid://dl3wkr3trfmdj" path="res://assets/pecatiranje/PECAT2.png" id="1_kwc46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x13l2"]
+size = Vector2(61, 21)
+
+[node name="Stamp" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(0, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kwc46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 34)
+shape = SubResource("RectangleShape2D_x13l2")

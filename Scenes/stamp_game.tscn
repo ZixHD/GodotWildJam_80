@@ -1,0 +1,170 @@
+[gd_scene load_steps=21 format=3 uid="uid://byy1qi0qg54g"]
+
+[ext_resource type="Script" path="res://Scripts/StampGame.gd" id="1_me3ql"]
+[ext_resource type="Texture2D" uid="uid://7301ehrux6gc" path="res://assets/pecatiranje/pozadina.png" id="1_sax3r"]
+[ext_resource type="PackedScene" uid="uid://bk8lcv0bngid" path="res://Scenes/stamp.tscn" id="3_5nufv"]
+[ext_resource type="Script" path="res://Scripts/stamp.gd" id="4_6x2q5"]
+[ext_resource type="Texture2D" uid="uid://bp8b1k84dr2om" path="res://assets/pecatiranje/ruka/ruka1.png" id="5_2yo30"]
+[ext_resource type="Texture2D" uid="uid://dyxrnc8ngr8tf" path="res://assets/pecatiranje/ruka/ruka2.png" id="6_1xnqt"]
+[ext_resource type="Texture2D" uid="uid://b8jvxur4scar8" path="res://assets/pecatiranje/ruka/ruka3.png" id="7_p716q"]
+[ext_resource type="Texture2D" uid="uid://bl5htfaqke6s1" path="res://assets/pecatiranje/ruka/ruka4.png" id="8_aprgn"]
+[ext_resource type="Texture2D" uid="uid://bc5a86ugektsk" path="res://assets/pecatiranje/ruka/ruka5.png" id="9_ro8po"]
+[ext_resource type="Texture2D" uid="uid://cqde7q1q4l24b" path="res://assets/pecatiranje/ruka/ruka6.png" id="10_lbnf3"]
+[ext_resource type="Texture2D" uid="uid://dsyx2m2ndhf4" path="res://assets/pecatiranje/ruka/ruka7.png" id="11_whxyh"]
+[ext_resource type="Texture2D" uid="uid://bqx01k5q6j7g0" path="res://assets/pecatiranje/ruka/ruka8.png" id="12_ioc1d"]
+[ext_resource type="Texture2D" uid="uid://cpftgfu8qxfu" path="res://assets/pecatiranje/ruka/ruka9.png" id="13_sdorj"]
+
+[sub_resource type="Animation" id="Animation_kuvf8"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(76, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_2bu5i"]
+resource_name = "glide"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.26667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(76, 142), Vector2(350, 142), Vector2(622, 142)]
+}
+
+[sub_resource type="Animation" id="Animation_p52mb"]
+resource_name = "press"
+length = 0.3
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(333.724, 142), Vector2(333.724, 394)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ippe7"]
+_data = {
+"RESET": SubResource("Animation_kuvf8"),
+"glide": SubResource("Animation_2bu5i"),
+"press": SubResource("Animation_p52mb")
+}
+
+[sub_resource type="Animation" id="Animation_vkahn"]
+resource_name = "default"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_2yo30"), ExtResource("6_1xnqt"), ExtResource("7_p716q"), ExtResource("8_aprgn"), ExtResource("9_ro8po"), ExtResource("10_lbnf3"), ExtResource("11_whxyh"), ExtResource("12_ioc1d"), ExtResource("13_sdorj"), ExtResource("5_2yo30")]
+}
+
+[sub_resource type="Animation" id="Animation_wagmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2yo30")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0svin"]
+_data = {
+"RESET": SubResource("Animation_wagmg"),
+"default": SubResource("Animation_vkahn")
+}
+
+[node name="StampGame" type="Node"]
+script = ExtResource("1_me3ql")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_sax3r")
+
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(345, 342)
+
+[node name="Stamp" parent="." instance=ExtResource("3_5nufv")]
+z_index = 5
+position = Vector2(76, 142)
+script = ExtResource("4_6x2q5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Stamp")
+libraries = {
+"": SubResource("AnimationLibrary_ippe7")
+}
+
+[node name="Documents" type="Node" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(397, 294)
+
+[node name="Sprite2d" type="Sprite2D" parent="Node2D"]
+position = Vector2(48, 86)
+texture = ExtResource("5_2yo30")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_0svin")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.5
+offset_top = -105.0
+offset_right = 312.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 15.0
+value = 15.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

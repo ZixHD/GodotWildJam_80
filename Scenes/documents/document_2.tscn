@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtne0hlcdwt6m"]
+
+[ext_resource type="Texture2D" uid="uid://b6fn50jvwpqq4" path="res://assets/pecatiranje/dokument2.png" id="1_5a241"]
+[ext_resource type="Script" path="res://Scripts/document.gd" id="1_lrj7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o707j"]
+size = Vector2(73, 55)
+
+[node name="Document2" type="Node2D"]
+script = ExtResource("1_lrj7n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -232.0
+offset_top = -142.0
+offset_right = 247.0
+offset_bottom = 180.0
+texture = ExtResource("1_5a241")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(40, 127)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -7)
+shape = SubResource("RectangleShape2D_o707j")
+disabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="area_document_2"]
