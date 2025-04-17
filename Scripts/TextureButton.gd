@@ -21,7 +21,3 @@ func _on_pressed_quit():
 	audio_stream_player.play()
 	await get_tree().create_timer(0.2).timeout
 	get_tree().quit(0)
-
-
-
-
