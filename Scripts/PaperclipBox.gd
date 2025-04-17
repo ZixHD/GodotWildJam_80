@@ -7,7 +7,7 @@ extends TextureRect
 @onready var green_box_1 = $"../GreenBox1"
 @onready var green_box_2 = $"../GreenBox2"
 
-
+signal clip_placed
 var accepted_color: Color;
 var can_drag := true
 var original_texture: Texture2D
@@ -30,20 +30,20 @@ func _can_drop_data(at_position, data):
 
 func _drop_data(at_position, data):
 	if texture != null:
-		return  # Already has a texture, reject
-	print("BoxColor", accepted_color)
-	print("ClipColor", data["source"].clip_color)
+		return 
+	#print("BoxColor", accepted_color)
+	#print("ClipColor", data["source"].clip_color)
 	if accepted_color != data["source"].clip_color:
 		return  # Wrong color, reject drop
 		
 	texture = data["texture"]
 	data["source"].can_drag = false
-	data["source"].drag_success = true  # Mark drag as successful
+	data["source"].drag_success = true  
 	if data["source"] != self:
+		emit_signal("clip_placed")
 		data["source"].queue_free()
 
 func _notification(what):
 	if what == NOTIFICATION_DRAG_END:
-		# Drag ended, check if drop was successful
 		if !drag_success and texture == null and original_texture != null:
 			texture = original_texture

@@ -136,3 +136,24 @@ position = Vector2(274, 370)
 
 [node name="PaperClips" type="Node" parent="."]
 script = ExtResource("3_2wcl8")
+
+[node name="Timer" type="Timer" parent="PaperClips"]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="PaperClips"]
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -315.0
+offset_top = -88.0
+offset_right = 315.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="timeout" from="PaperClips/Timer" to="PaperClips" method="_on_timer_timeout"]

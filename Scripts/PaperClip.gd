@@ -13,7 +13,7 @@ func _get_drag_data(at_position):
 		return null
 
 	original_texture = texture
-	drag_success = false  # Reset this at start of drag
+	drag_success = false  
 
 	var preview_texture = TextureRect.new()
 	preview_texture.texture = texture
@@ -30,13 +30,12 @@ func _get_drag_data(at_position):
 		"source": self
 	}
 
-	texture = null  # Clear the texture for visual feedback
+	texture = null  
 	return drag_data
 
 
 
 func _notification(what):
 	if what == NOTIFICATION_DRAG_END:
-		# Drag ended, check if drop was successful
 		if !drag_success and texture == null and original_texture != null:
 			texture = original_texture
