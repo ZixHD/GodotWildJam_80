@@ -1,16 +1,19 @@
 extends Node
 
-@onready var spawn_1 = $"../Markers/Spawn1"
-@onready var spawn_2 = $"../Markers/Spawn2"
-@onready var spawn_3 = $"../Markers/Spawn3"
-@onready var spawn_4 = $"../Markers/Spawn4"
-@onready var spawn_5 = $"../Markers/Spawn5"
-@onready var spawn_6 = $"../Markers/Spawn6"
+@onready var spawn_1: Marker2D = $Markers/Spawn1
+@onready var spawn_2: Marker2D = $Markers/Spawn2
+@onready var spawn_3: Marker2D = $Markers/Spawn3
+@onready var spawn_4: Marker2D = $Markers/Spawn4
+@onready var spawn_5: Marker2D = $Markers/Spawn5
+@onready var spawn_6: Marker2D = $Markers/Spawn6
+@onready var timer: Timer = $Timer
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 @onready var markers = [spawn_1, spawn_2, spawn_3, spawn_4, spawn_5, spawn_6]
-@onready var timer = $"../Timer"
-@onready var progress_bar = $"../ProgressBar"
 
+
+signal game_finished
+signal game_lost
 var ad_scenes = [
 	preload("res://Scenes/ads/ad_1.tscn"),
 	preload("res://Scenes/ads/ad_2.tscn"),
@@ -22,10 +25,17 @@ var ad_scenes = [
 
 var total_time := 10.0  
 var max_ads;
-func _process(delta):
-	if timer.time_left > 0:
+var game_end = false;
+
+
+func _process(_delta):
+	if !game_end and timer.time_left > 0:
 		if(max_ads == 0):
-			timer.stop()
+			timer.queue_free()
+			progress_bar.queue_free()
+			game_end = true;
+			emit_signal("game_finished")
+			return;
 		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
 	else:
 		progress_bar.value = 0
@@ -59,5 +69,4 @@ func _on_ad_closed():
 	
 func _on_timer_timeout():
 	if(max_ads != 0):
-		print("ISTEKLO BRM")
-	pass # Replace with function body.
+		emit_signal("game_lost")

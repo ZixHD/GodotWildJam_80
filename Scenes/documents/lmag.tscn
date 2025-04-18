@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://byxn8hioa0sox"]
 
-[ext_resource type="Texture2D" uid="uid://bung47hojgyhr" path="res://assets/pecatiranje/LMAG.png" id="1_4cx84"]
+[ext_resource type="Texture2D" uid="uid://bung47hojgyhr" path="res://assets/stamp/LMAG.png" id="1_4cx84"]
 
 [node name="LMAG" type="Node2D"]
 

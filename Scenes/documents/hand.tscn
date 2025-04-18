@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://cc2arrewe5utd"]
 
-[ext_resource type="Texture2D" uid="uid://bp8b1k84dr2om" path="res://assets/pecatiranje/ruka/ruka1.png" id="1_3rmjv"]
-[ext_resource type="Texture2D" uid="uid://dyxrnc8ngr8tf" path="res://assets/pecatiranje/ruka/ruka2.png" id="2_qwva6"]
-[ext_resource type="Texture2D" uid="uid://b8jvxur4scar8" path="res://assets/pecatiranje/ruka/ruka3.png" id="3_ufbt5"]
-[ext_resource type="Texture2D" uid="uid://bl5htfaqke6s1" path="res://assets/pecatiranje/ruka/ruka4.png" id="4_65xhy"]
-[ext_resource type="Texture2D" uid="uid://bc5a86ugektsk" path="res://assets/pecatiranje/ruka/ruka5.png" id="5_jydol"]
-[ext_resource type="Texture2D" uid="uid://cqde7q1q4l24b" path="res://assets/pecatiranje/ruka/ruka6.png" id="6_afrrm"]
-[ext_resource type="Texture2D" uid="uid://dsyx2m2ndhf4" path="res://assets/pecatiranje/ruka/ruka7.png" id="7_ep1de"]
-[ext_resource type="Texture2D" uid="uid://bqx01k5q6j7g0" path="res://assets/pecatiranje/ruka/ruka8.png" id="8_2d4nc"]
-[ext_resource type="Texture2D" uid="uid://cpftgfu8qxfu" path="res://assets/pecatiranje/ruka/ruka9.png" id="9_0nxm7"]
+[ext_resource type="Texture2D" uid="uid://bp8b1k84dr2om" path="res://assets/stamp/ruka/ruka1.png" id="1_3rmjv"]
+[ext_resource type="Texture2D" uid="uid://dyxrnc8ngr8tf" path="res://assets/stamp/ruka/ruka2.png" id="2_qwva6"]
+[ext_resource type="Texture2D" uid="uid://b8jvxur4scar8" path="res://assets/stamp/ruka/ruka3.png" id="3_ufbt5"]
+[ext_resource type="Texture2D" uid="uid://bl5htfaqke6s1" path="res://assets/stamp/ruka/ruka4.png" id="4_65xhy"]
+[ext_resource type="Texture2D" uid="uid://bc5a86ugektsk" path="res://assets/stamp/ruka/ruka5.png" id="5_jydol"]
+[ext_resource type="Texture2D" uid="uid://cqde7q1q4l24b" path="res://assets/stamp/ruka/ruka6.png" id="6_afrrm"]
+[ext_resource type="Texture2D" uid="uid://dsyx2m2ndhf4" path="res://assets/stamp/ruka/ruka7.png" id="7_ep1de"]
+[ext_resource type="Texture2D" uid="uid://bqx01k5q6j7g0" path="res://assets/stamp/ruka/ruka8.png" id="8_2d4nc"]
+[ext_resource type="Texture2D" uid="uid://cpftgfu8qxfu" path="res://assets/stamp/ruka/ruka9.png" id="9_0nxm7"]
 
 [sub_resource type="Animation" id="Animation_wagmg"]
 length = 0.001

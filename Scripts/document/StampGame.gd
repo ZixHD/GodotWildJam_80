@@ -24,6 +24,8 @@ var document_scenes = [
 	DOCUMENT_1, DOCUMENT_2, DOCUMENT_3, DOCUMENT_4, DOCUMENT_5, DOCUMENT_6
 ]
 
+signal game_finished
+signal game_lost
 var document_index = 0;
 var document_count = document_scenes.size();
 var current_document: Node2D = null
@@ -44,13 +46,16 @@ func shuffle_documents():
 	shuffled_docs = document_scenes.duplicate()
 	shuffled_docs.shuffle();
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if spawn_flag and document_count != 0:
 		spawn_document()
 		
 	if timer.time_left > 0:
 		if(document_count == 0):
-			timer.stop()
+			timer.queue_free()
+			progress_bar.queue_free()
+			emit_signal("game_finished")
+			return;
 		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
 	else:
 		progress_bar.value = 0
@@ -90,4 +95,5 @@ func _on_add_mark_signal(x_pos: int, y_pos: int) -> void:
 
 func _on_timer_timeout() -> void:
 	if(document_count != 0):
-		print("VRM isteklo")
+		emit_signal("game_lost")
+		

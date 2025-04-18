@@ -25,7 +25,7 @@ func _ready():
 	
 
 
-func _can_drop_data(at_position, data):
+func _can_drop_data(_at_position, data):
 	return typeof(data) == TYPE_DICTIONARY and data.has("texture") and data["texture"] is Texture2D
 
 func _drop_data(at_position, data):

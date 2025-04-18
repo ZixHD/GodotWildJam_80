@@ -1,43 +1,43 @@
 extends Node
 
-@onready var spawn_1 = $"../Markers/Spawn1"
-@onready var spawn_2 = $"../Markers/Spawn2"
-@onready var spawn_3 = $"../Markers/Spawn3"
-@onready var spawn_4 = $"../Markers/Spawn4"
-@onready var spawn_5 = $"../Markers/Spawn5"
-@onready var spawn_6 = $"../Markers/Spawn6"
-@onready var timer = $Timer
-@onready var progress_bar = $ProgressBar
-@onready var paperclip_sound: AudioStreamPlayer = $"../PaperclipSound"
+@onready var spawn_1: Marker2D = $Markers/Spawn1
+@onready var spawn_2: Marker2D = $Markers/Spawn2
+@onready var spawn_3: Marker2D = $Markers/Spawn3
+@onready var spawn_4: Marker2D = $Markers/Spawn4
+@onready var spawn_5: Marker2D = $Markers/Spawn5
+@onready var spawn_6: Marker2D = $Markers/Spawn6
+@onready var timer: Timer = $PaperClips/Timer
+@onready var progress_bar: ProgressBar = $PaperClips/ProgressBar
+@onready var paperclip_sound: AudioStreamPlayer = $PaperclipSound
+@onready var red_box_1: TextureRect = $RedBox1
+@onready var red_box_2: TextureRect = $RedBox2
+@onready var blue_box_1: TextureRect = $BlueBox1
+@onready var blue_box_2: TextureRect = $BlueBox2
+@onready var green_box_1: TextureRect = $GreenBox1
+@onready var green_box_2: TextureRect = $GreenBox2
+@onready var paper_clips: Node = $PaperClips
 
 @onready var markers = [spawn_1, spawn_2, spawn_3, spawn_4, spawn_5, spawn_6]
-@onready var red_box_1 = $"../RedBox1"
-@onready var red_box_2 = $"../RedBox2"
-@onready var blue_box_1 = $"../BlueBox1"
-@onready var blue_box_2 = $"../BlueBox2"
-@onready var green_box_1 = $"../GreenBox1"
-@onready var green_box_2 = $"../GreenBox2"
-
-
-
 @onready var boxes = [
 	red_box_1, red_box_2, blue_box_1, blue_box_2, green_box_1, green_box_2
 ]
 
 var clip_scenes = [
-	preload("res://Scenes/paperClips/paper_clip1.tscn"),
-	preload("res://Scenes/paperClips/paper_clip2.tscn"),
-	preload("res://Scenes/paperClips/paper_clip3.tscn"),
-	preload("res://Scenes/paperClips/paper_clip4.tscn"),
-	preload("res://Scenes/paperClips/paper_clip5.tscn"),
-	preload("res://Scenes/paperClips/paper_clip6.tscn")
+	preload("res://Scenes/paperclips/paper_clip1.tscn"),
+	preload("res://Scenes/paperclips/paper_clip2.tscn"),
+	preload("res://Scenes/paperclips/paper_clip3.tscn"),
+	preload("res://Scenes/paperclips/paper_clip4.tscn"),
+	preload("res://Scenes/paperclips/paper_clip5.tscn"),
+	preload("res://Scenes/paperclips/paper_clip6.tscn")
 ]
 
+signal game_finished
+signal game_lost
 var max_clips = 6
 var total_time = 10.0
+var game_end = false;
 
 func _ready():
-	
 	for box in boxes:
 		box.connect("clip_placed", Callable(self, "_on_clip_placed"))
 	max_clips = clip_scenes.size()
@@ -46,10 +46,8 @@ func _ready():
 	timer.start(total_time)
 	spawn_paperClips()
 	
-func _process(delta):
+func _process(_delta: float) -> void:
 	if timer.time_left > 0:
-		if(max_clips == 0):
-			timer.stop()
 		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
 	else:
 		progress_bar.value = 0
@@ -84,9 +82,15 @@ func _on_clip_placed():
 	paperclip_sound.play()
 	max_clips -= 1
 	print("Clip placed! Remaining clips:", max_clips)
+	if max_clips == 0:
+		print("All clips placed!")
+		emit_signal("game_finished")
+		paper_clips.queue_free()
+		
 	
 
 func _on_timer_timeout():
-	if(max_clips != 0):
-		print("Isteklo vreme")
+	if(max_clips > 0):
+		emit_signal("game_lost")
+	
 	

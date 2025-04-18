@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ck25ir4khvoef"]
 
-[ext_resource type="Texture2D" uid="uid://cua0uuyuf13t0" path="res://assets/paper clip/pozadina.png" id="1_s661j"]
+[ext_resource type="Texture2D" uid="uid://cua0uuyuf13t0" path="res://assets/paperclip/pozadina.png" id="1_s661j"]
 [ext_resource type="Script" path="res://Scripts/paperclip/PaperclipBox.gd" id="2_e34rp"]
 [ext_resource type="Script" path="res://Scripts/paperclip/PaperClipSpawner.gd" id="3_feo5l"]
 [ext_resource type="AudioStream" uid="uid://bq5dem70kxweu" path="res://assets/audio/spajalica1.mp3" id="4_g7af7"]
@@ -8,6 +8,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btei7"]
 
 [node name="PaperClip" type="Node"]
+script = ExtResource("3_feo5l")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -136,7 +137,6 @@ position = Vector2(370, 314)
 position = Vector2(274, 370)
 
 [node name="PaperClips" type="Node" parent="."]
-script = ExtResource("3_feo5l")
 
 [node name="Timer" type="Timer" parent="PaperClips"]
 one_shot = true
@@ -160,4 +160,4 @@ size_flags_vertical = 4
 [node name="PaperclipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_g7af7")
 
-[connection signal="timeout" from="PaperClips/Timer" to="PaperClips" method="_on_timer_timeout"]
+[connection signal="timeout" from="PaperClips/Timer" to="." method="_on_timer_timeout"]

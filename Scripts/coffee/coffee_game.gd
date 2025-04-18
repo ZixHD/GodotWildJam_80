@@ -5,6 +5,8 @@ extends Node
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+signal game_finished
+signal game_lost
 var frame_count;
 var total_time := 10.0  
 var game_won = false;
@@ -18,10 +20,13 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if timer.time_left > 0:
 		if(game_won):
-			timer.stop()
+			timer.queue_free()
+			progress_bar.queue_free()
+			emit_signal("game_finished")
+			return;
 		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
 	else:
 		progress_bar.value = 0
@@ -47,4 +52,4 @@ func _on_stop_pressed() -> void:
 
 func _on_timer_timeout() -> void:
 	if(!game_won):
-		print("Isteklo je vreme")
+		emit_signal("game_lost")

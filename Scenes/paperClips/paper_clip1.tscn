@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwmtj35s64awe"]
 
-[ext_resource type="Texture2D" uid="uid://5abam1hqgiu3" path="res://assets/paper clip/clipBLUE1.png" id="1_x02b4"]
+[ext_resource type="Texture2D" uid="uid://5abam1hqgiu3" path="res://assets/paperclip/clipBLUE1.png" id="1_x02b4"]
 [ext_resource type="Script" path="res://Scripts/paperclip/PaperClip.gd" id="2_kpybh"]
 
 [sub_resource type="Theme" id="Theme_mk80j"]

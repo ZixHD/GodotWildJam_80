@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bk8lcv0bngid"]
 
-[ext_resource type="Texture2D" uid="uid://dl3wkr3trfmdj" path="res://assets/pecatiranje/PECAT2.png" id="1_kwc46"]
+[ext_resource type="Texture2D" uid="uid://dl3wkr3trfmdj" path="res://assets/stamp/PECAT2.png" id="1_kwc46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x13l2"]
 size = Vector2(61, 21)
