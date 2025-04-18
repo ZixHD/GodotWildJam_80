@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://cs1igtq2o7ghg"]
+
+[ext_resource type="Texture2D" uid="uid://bnqy0yyf3v4h8" path="res://assets/boss game/pozadina.png" id="1_giqrb"]
+[ext_resource type="Script" path="res://Scripts/boss/boss_game.gd" id="1_xep6s"]
+[ext_resource type="Texture2D" uid="uid://dh3r8wdecfpmy" path="res://assets/boss game/desktop.png" id="2_pgn5x"]
+[ext_resource type="Texture2D" uid="uid://cgjujbwublnp3" path="res://assets/boss game/monster1.png" id="3_wk70r"]
+[ext_resource type="Texture2D" uid="uid://16rs25b0pgqt" path="res://assets/boss game/monster2.png" id="4_l8kth"]
+[ext_resource type="Texture2D" uid="uid://dolubftqlm1tf" path="res://assets/boss game/monster3.png" id="5_4tgen"]
+[ext_resource type="Texture2D" uid="uid://bpnrvfi5exmuq" path="res://assets/boss game/monster4.png" id="6_0h6hr"]
+[ext_resource type="Texture2D" uid="uid://ci44j4dd10udl" path="res://assets/boss game/DANGER.png" id="7_igvf7"]
+[ext_resource type="Texture2D" uid="uid://c8ln8i5und3r8" path="res://assets/boss game/SEF2.png" id="8_wktc7"]
+[ext_resource type="Texture2D" uid="uid://p2xdo8tm8mmp" path="res://assets/boss game/SEF1.png" id="9_dbt6h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2ci4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pgn5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wk70r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4tgen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l8kth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0h6hr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abfyu"]
+size = Vector2(290, 243)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5m8bk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wktc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dbt6h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BossGame" type="Node"]
+script = ExtResource("1_xep6s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_giqrb")
+
+[node name="Monitor" type="AnimatedSprite2D" parent="."]
+position = Vector2(178, 383)
+sprite_frames = SubResource("SpriteFrames_n2ci4")
+frame = 1
+frame_progress = 0.0807143
+
+[node name="Area2D" type="Area2D" parent="Monitor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monitor/Area2D"]
+position = Vector2(-1, -42.5)
+shape = SubResource("RectangleShape2D_abfyu")
+
+[node name="Danger" type="Sprite2D" parent="."]
+position = Vector2(335, 60)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_igvf7")
+
+[node name="Danger2" type="Sprite2D" parent="."]
+position = Vector2(377, 63)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_igvf7")
+
+[node name="Danger3" type="Sprite2D" parent="."]
+position = Vector2(417, 66)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_igvf7")
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+position = Vector2(566, 83)
+sprite_frames = SubResource("SpriteFrames_5m8bk")
+
+[node name="BossTimer" type="Timer" parent="Boss"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.5
+offset_top = -105.0
+offset_right = 312.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 15.0
+value = 15.0
+
+[connection signal="mouse_entered" from="Monitor/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Monitor/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="Boss/BossTimer" to="." method="_on_boss_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
