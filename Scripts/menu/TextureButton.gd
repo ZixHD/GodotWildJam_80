@@ -14,7 +14,7 @@ func _ready():
 func _on_pressed_play():
 	audio_stream_player.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_file("res://Scenes/desktop.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu/desktop.tscn")
 	
 
 func _on_pressed_quit():

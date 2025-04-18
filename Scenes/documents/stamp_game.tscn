@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://byy1qi0qg54g"]
+[gd_scene load_steps=23 format=3 uid="uid://byy1qi0qg54g"]
 
-[ext_resource type="Script" path="res://Scripts/StampGame.gd" id="1_me3ql"]
+[ext_resource type="Script" path="res://Scripts/document/StampGame.gd" id="1_me3ql"]
 [ext_resource type="Texture2D" uid="uid://7301ehrux6gc" path="res://assets/pecatiranje/pozadina.png" id="1_sax3r"]
-[ext_resource type="PackedScene" uid="uid://bk8lcv0bngid" path="res://Scenes/stamp.tscn" id="3_5nufv"]
-[ext_resource type="Script" path="res://Scripts/stamp.gd" id="4_6x2q5"]
+[ext_resource type="PackedScene" uid="uid://bk8lcv0bngid" path="res://Scenes/documents/stamp.tscn" id="3_5nufv"]
+[ext_resource type="Script" path="res://Scripts/document/stamp.gd" id="4_6x2q5"]
 [ext_resource type="Texture2D" uid="uid://bp8b1k84dr2om" path="res://assets/pecatiranje/ruka/ruka1.png" id="5_2yo30"]
 [ext_resource type="Texture2D" uid="uid://dyxrnc8ngr8tf" path="res://assets/pecatiranje/ruka/ruka2.png" id="6_1xnqt"]
 [ext_resource type="Texture2D" uid="uid://b8jvxur4scar8" path="res://assets/pecatiranje/ruka/ruka3.png" id="7_p716q"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dsyx2m2ndhf4" path="res://assets/pecatiranje/ruka/ruka7.png" id="11_whxyh"]
 [ext_resource type="Texture2D" uid="uid://bqx01k5q6j7g0" path="res://assets/pecatiranje/ruka/ruka8.png" id="12_ioc1d"]
 [ext_resource type="Texture2D" uid="uid://cpftgfu8qxfu" path="res://assets/pecatiranje/ruka/ruka9.png" id="13_sdorj"]
+[ext_resource type="AudioStream" uid="uid://c1w6yjnflnytw" path="res://assets/audio/papir.mp3" id="14_r1xbs"]
+[ext_resource type="AudioStream" uid="uid://bsnxr857ud7q8" path="res://assets/audio/pecat.mp3" id="15_trqfa"]
 
 [sub_resource type="Animation" id="Animation_kuvf8"]
 length = 0.001
@@ -71,6 +73,21 @@ _data = {
 "press": SubResource("Animation_p52mb")
 }
 
+[sub_resource type="Animation" id="Animation_wagmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2yo30")]
+}
+
 [sub_resource type="Animation" id="Animation_vkahn"]
 resource_name = "default"
 length = 0.6
@@ -85,21 +102,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("5_2yo30"), ExtResource("6_1xnqt"), ExtResource("7_p716q"), ExtResource("8_aprgn"), ExtResource("9_ro8po"), ExtResource("10_lbnf3"), ExtResource("11_whxyh"), ExtResource("12_ioc1d"), ExtResource("13_sdorj"), ExtResource("5_2yo30")]
-}
-
-[sub_resource type="Animation" id="Animation_wagmg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2d:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_2yo30")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0svin"]
@@ -166,5 +168,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 max_value = 15.0
 value = 15.0
+
+[node name="PaperSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_r1xbs")
+
+[node name="StampSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_trqfa")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

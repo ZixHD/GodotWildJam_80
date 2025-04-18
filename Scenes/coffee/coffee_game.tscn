@@ -1,0 +1,342 @@
+[gd_scene load_steps=72 format=3 uid="uid://brq8ko51sfmv"]
+
+[ext_resource type="Script" path="res://Scripts/coffee/coffee_game.gd" id="1_5r3oa"]
+[ext_resource type="Texture2D" uid="uid://d1f7d8x086b80" path="res://assets/coffee maker minigame/background with maker/coffee minigame layout 1.png" id="2_rvnek"]
+[ext_resource type="Texture2D" uid="uid://cqo6mt5jvdlf5" path="res://assets/coffee maker minigame/assets/coffee maker.png" id="3_jie7v"]
+[ext_resource type="Texture2D" uid="uid://bkwnv8k8jkxdv" path="res://assets/coffee maker minigame/buttons/go 1.png" id="4_wpfcl"]
+[ext_resource type="Texture2D" uid="uid://1iuvprr3b3aw" path="res://assets/coffee maker minigame/buttons/go 2.png" id="5_hkfcd"]
+[ext_resource type="Texture2D" uid="uid://1xoak5lv1qcn" path="res://assets/coffee maker minigame/buttons/stop 1.png" id="6_qst4i"]
+[ext_resource type="Texture2D" uid="uid://utldm7d8emn0" path="res://assets/coffee maker minigame/buttons/stop 2.png" id="7_f3m6e"]
+[ext_resource type="Texture2D" uid="uid://bqjw7l14dvfqu" path="res://assets/coffee maker minigame/anims/coffee cup animation/1.png" id="8_u1h4v"]
+[ext_resource type="Texture2D" uid="uid://blcdres2u2f5j" path="res://assets/coffee maker minigame/anims/coffee cup animation/2.png" id="9_42qio"]
+[ext_resource type="Texture2D" uid="uid://byrh2uixttbqj" path="res://assets/coffee maker minigame/anims/coffee cup animation/3.png" id="10_xt3ei"]
+[ext_resource type="Texture2D" uid="uid://ccg3ate08dgbo" path="res://assets/coffee maker minigame/anims/coffee cup animation/4.png" id="11_gt6rc"]
+[ext_resource type="Texture2D" uid="uid://dekrpvn67mjv6" path="res://assets/coffee maker minigame/anims/coffee cup animation/5.png" id="12_fbofy"]
+[ext_resource type="Texture2D" uid="uid://bowgrn2xru85n" path="res://assets/coffee maker minigame/anims/coffee cup animation/6.png" id="13_bnqk8"]
+[ext_resource type="Texture2D" uid="uid://db1g0ded6q30u" path="res://assets/coffee maker minigame/anims/coffee cup animation/7.png" id="14_ch4fg"]
+[ext_resource type="Texture2D" uid="uid://bhbliqghehlo0" path="res://assets/coffee maker minigame/anims/coffee cup animation/8.png" id="15_ck25i"]
+[ext_resource type="Texture2D" uid="uid://ch28g1lda44cb" path="res://assets/coffee maker minigame/anims/coffee cup animation/9.png" id="16_jqmie"]
+[ext_resource type="Texture2D" uid="uid://cwxeciiow7kiw" path="res://assets/coffee maker minigame/anims/coffee cup animation/10.png" id="17_0gwew"]
+[ext_resource type="Texture2D" uid="uid://db8qpiahdqpk7" path="res://assets/coffee maker minigame/anims/coffee cup animation/11.png" id="18_4r38s"]
+[ext_resource type="Texture2D" uid="uid://c1p5sue88ycuy" path="res://assets/coffee maker minigame/anims/coffee cup animation/12.png" id="19_ogc4q"]
+[ext_resource type="Texture2D" uid="uid://b84n4qove1ok5" path="res://assets/coffee maker minigame/anims/coffee cup animation/13.png" id="20_3drlx"]
+[ext_resource type="Texture2D" uid="uid://cerjj1hdq8vg6" path="res://assets/coffee maker minigame/anims/coffee cup animation/14.png" id="21_lhmks"]
+[ext_resource type="Texture2D" uid="uid://dc83ri4qoxeyq" path="res://assets/coffee maker minigame/anims/coffee cup animation/15.png" id="22_m40bs"]
+[ext_resource type="Texture2D" uid="uid://kfftd74ttwnx" path="res://assets/coffee maker minigame/anims/coffee cup animation/16.png" id="23_mclny"]
+[ext_resource type="Texture2D" uid="uid://bn7qlfm7wgab1" path="res://assets/coffee maker minigame/anims/coffee cup animation/17.png" id="24_ep758"]
+[ext_resource type="Texture2D" uid="uid://cehh1sgaxkvx6" path="res://assets/coffee maker minigame/anims/coffee cup animation/18.png" id="25_eul0l"]
+[ext_resource type="Texture2D" uid="uid://cw6o2in423g0u" path="res://assets/coffee maker minigame/anims/coffee cup animation/19.png" id="26_xlpfl"]
+[ext_resource type="Texture2D" uid="uid://codbpfi8bsu20" path="res://assets/coffee maker minigame/anims/coffee cup animation/20.png" id="27_1wfml"]
+[ext_resource type="Texture2D" uid="uid://b3e8jkew7wkfv" path="res://assets/coffee maker minigame/anims/coffee cup animation/21.png" id="28_r38hb"]
+[ext_resource type="Texture2D" uid="uid://dfmqr3rlmf3ms" path="res://assets/coffee maker minigame/anims/coffee cup animation/22.png" id="29_rn5mg"]
+[ext_resource type="Texture2D" uid="uid://hkiim3nxadqt" path="res://assets/coffee maker minigame/anims/coffee cup animation/23.png" id="30_srw5l"]
+[ext_resource type="Texture2D" uid="uid://dc4nqh1iufly2" path="res://assets/coffee maker minigame/anims/coffee cup animation/24.png" id="31_3wpmb"]
+[ext_resource type="Texture2D" uid="uid://byh063wkxeofq" path="res://assets/coffee maker minigame/anims/coffee cup animation/25.png" id="32_d23hx"]
+[ext_resource type="Texture2D" uid="uid://bklsbkf5vg3cd" path="res://assets/coffee maker minigame/anims/coffee cup animation/27.png" id="33_hmqkj"]
+[ext_resource type="Texture2D" uid="uid://5tr2dtpj5rlp" path="res://assets/coffee maker minigame/anims/coffee cup animation/28.png" id="34_u0uty"]
+[ext_resource type="Texture2D" uid="uid://umhuk0v0m8f1" path="res://assets/coffee maker minigame/anims/coffee cup animation/29.png" id="35_6r4r4"]
+[ext_resource type="Texture2D" uid="uid://hxbl8m8820dp" path="res://assets/coffee maker minigame/anims/coffee cup animation/30.png" id="36_5crno"]
+[ext_resource type="Texture2D" uid="uid://du2d55uu2c5sf" path="res://assets/coffee maker minigame/anims/coffee cup animation/31.png" id="37_h3oui"]
+[ext_resource type="Texture2D" uid="uid://lat6spbtrbib" path="res://assets/coffee maker minigame/anims/coffee cup animation/32.png" id="38_ec85v"]
+[ext_resource type="Texture2D" uid="uid://b6iuv1mk05p46" path="res://assets/coffee maker minigame/anims/coffee cup animation/33.png" id="39_uq8vp"]
+[ext_resource type="Texture2D" uid="uid://btwojnkhqjhbt" path="res://assets/coffee maker minigame/anims/coffee cup animation/34.png" id="40_dg5k0"]
+[ext_resource type="Texture2D" uid="uid://ctp583qub4em5" path="res://assets/coffee maker minigame/anims/coffee cup animation/35.png" id="41_14gsw"]
+[ext_resource type="Texture2D" uid="uid://d3kqnchjedha0" path="res://assets/coffee maker minigame/anims/coffee cup animation/36.png" id="42_ox5lh"]
+[ext_resource type="Texture2D" uid="uid://ch7mqh03vfwot" path="res://assets/coffee maker minigame/anims/coffee cup animation/37.png" id="43_bcs15"]
+[ext_resource type="Texture2D" uid="uid://kc4uefj0p13f" path="res://assets/coffee maker minigame/anims/coffee cup animation/38.png" id="44_bis7s"]
+[ext_resource type="Texture2D" uid="uid://c4r8ol3gkewjd" path="res://assets/coffee maker minigame/anims/coffee cup animation/39.png" id="45_ahvyb"]
+[ext_resource type="Texture2D" uid="uid://iswkd751235a" path="res://assets/coffee maker minigame/anims/coffee cup animation/40.png" id="46_fgrym"]
+[ext_resource type="Texture2D" uid="uid://blvo5ew7xw8kp" path="res://assets/coffee maker minigame/anims/coffee cup animation/41.png" id="47_8p8s2"]
+[ext_resource type="Texture2D" uid="uid://b5isjecqq7w8k" path="res://assets/coffee maker minigame/anims/coffee cup animation/42.png" id="48_4xndy"]
+[ext_resource type="Texture2D" uid="uid://iclgwt4bksrb" path="res://assets/coffee maker minigame/anims/coffee cup animation/43.png" id="49_skfik"]
+[ext_resource type="Texture2D" uid="uid://cvaydhqpik0l4" path="res://assets/coffee maker minigame/anims/coffee cup animation/44.png" id="50_pyk7x"]
+[ext_resource type="Texture2D" uid="uid://yf0tfk65nt5f" path="res://assets/coffee maker minigame/anims/coffee cup animation/45.png" id="51_bhwt3"]
+[ext_resource type="Texture2D" uid="uid://dogvuvyk67mpm" path="res://assets/coffee maker minigame/anims/coffee cup animation/46.png" id="52_mbjnf"]
+[ext_resource type="Texture2D" uid="uid://dhjmqoylkqpip" path="res://assets/coffee maker minigame/anims/coffee cup animation/47.png" id="53_w4t8n"]
+[ext_resource type="Texture2D" uid="uid://m137rmikhxgs" path="res://assets/coffee maker minigame/anims/coffee cup animation/48.png" id="54_cft3w"]
+[ext_resource type="Texture2D" uid="uid://dxbd4jnylh3a7" path="res://assets/coffee maker minigame/anims/coffee cup animation/49.png" id="55_dda33"]
+[ext_resource type="Texture2D" uid="uid://dw6f3pbbwung4" path="res://assets/coffee maker minigame/anims/coffee cup animation/50.png" id="56_e7u7m"]
+[ext_resource type="Texture2D" uid="uid://cl0fhatj2gula" path="res://assets/coffee maker minigame/anims/coffee cup animation/51.png" id="57_x2jhc"]
+[ext_resource type="Texture2D" uid="uid://cvkd6k02yk2dj" path="res://assets/coffee maker minigame/anims/coffee cup animation/52.png" id="58_qcqn2"]
+[ext_resource type="Texture2D" uid="uid://bkevcxk60hkqi" path="res://assets/coffee maker minigame/anims/coffee cup animation/53.png" id="59_ans7n"]
+[ext_resource type="Texture2D" uid="uid://dis70y2s6gnsk" path="res://assets/coffee maker minigame/anims/coffee cup animation/54.png" id="60_ivbpi"]
+[ext_resource type="Texture2D" uid="uid://dabsl5ruhbq2e" path="res://assets/coffee maker minigame/anims/coffee cup animation/55.png" id="61_4o8kk"]
+[ext_resource type="Texture2D" uid="uid://kkaofj6nk6ux" path="res://assets/coffee maker minigame/anims/coffee cup animation/56.png" id="62_hsfh6"]
+[ext_resource type="Texture2D" uid="uid://cthdqja6o24qi" path="res://assets/coffee maker minigame/anims/coffee cup animation/57.png" id="63_vwp4d"]
+[ext_resource type="Texture2D" uid="uid://bbqxegjedllxu" path="res://assets/coffee maker minigame/anims/coffee cup animation/58.png" id="64_qjls1"]
+[ext_resource type="Texture2D" uid="uid://bf4hkc7rwnr36" path="res://assets/coffee maker minigame/anims/coffee cup animation/59.png" id="65_ck40u"]
+[ext_resource type="Texture2D" uid="uid://c7sb5vf2k117j" path="res://assets/coffee maker minigame/anims/coffee cup animation/61.png" id="66_uur1g"]
+[ext_resource type="Texture2D" uid="uid://ba6dar4vmpka4" path="res://assets/coffee maker minigame/anims/coffee cup animation/62.png" id="67_ajjlq"]
+[ext_resource type="Texture2D" uid="uid://bpn20tfaki4m4" path="res://assets/coffee maker minigame/anims/coffee cup animation/60.png" id="68_skeah"]
+[ext_resource type="Texture2D" uid="uid://c5p6okbmj5wla" path="res://assets/coffee maker minigame/anims/coffee flow/999.png" id="69_houv5"]
+[ext_resource type="Texture2D" uid="uid://brhm6jeb072j0" path="res://assets/coffee maker minigame/assets/coffee limit.png" id="70_ck311"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6vjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_u1h4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_42qio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xt3ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gt6rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fbofy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bnqk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ch4fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ck25i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jqmie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0gwew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4r38s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ogc4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_3drlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lhmks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_m40bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_mclny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ep758")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_eul0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xlpfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1wfml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_r38hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_rn5mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_srw5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3wpmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_d23hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hmqkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_u0uty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_6r4r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5crno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_h3oui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_ec85v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_uq8vp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_dg5k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_14gsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_ox5lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_bcs15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_bis7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_ahvyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_fgrym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_8p8s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_4xndy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_skfik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_pyk7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_bhwt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_mbjnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_w4t8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_cft3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_dda33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_e7u7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_x2jhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_qcqn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_ans7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_ivbpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_4o8kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_hsfh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_vwp4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_qjls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_ck40u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_uur1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_ajjlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_skeah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hmqkj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="CoffeeGame" type="Node"]
+script = ExtResource("1_5r3oa")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -34.0
+offset_top = -6.0
+offset_right = 766.0
+offset_bottom = 594.0
+texture = ExtResource("2_rvnek")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(420, 316)
+texture = ExtResource("3_jie7v")
+
+[node name="Go" type="TextureButton" parent="."]
+offset_left = 342.0
+offset_top = 222.0
+offset_right = 395.0
+offset_bottom = 275.0
+texture_normal = ExtResource("4_wpfcl")
+texture_pressed = ExtResource("5_hkfcd")
+
+[node name="Stop" type="TextureButton" parent="."]
+offset_left = 430.0
+offset_top = 221.0
+offset_right = 483.0
+offset_bottom = 274.0
+texture_normal = ExtResource("6_qst4i")
+texture_pressed = ExtResource("7_f3m6e")
+
+[node name="CoffeeMug" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(346, 356)
+sprite_frames = SubResource("SpriteFrames_m6vjt")
+
+[node name="CoffeeFlow" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(354, 346.75)
+scale = Vector2(1, 0.847368)
+texture = ExtResource("69_houv5")
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(354, 330.5)
+scale = Vector2(0.907216, 1.00001)
+texture = ExtResource("70_ck311")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.5
+offset_top = -105.0
+offset_right = 312.5
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 15.0
+value = 15.0
+
+[connection signal="pressed" from="Go" to="." method="_on_go_pressed"]
+[connection signal="pressed" from="Stop" to="." method="_on_stop_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -8,7 +8,7 @@ extends Node
 @onready var spawn_6 = $"../Markers/Spawn6"
 @onready var timer = $Timer
 @onready var progress_bar = $ProgressBar
-
+@onready var paperclip_sound: AudioStreamPlayer = $"../PaperclipSound"
 
 @onready var markers = [spawn_1, spawn_2, spawn_3, spawn_4, spawn_5, spawn_6]
 @onready var red_box_1 = $"../RedBox1"
@@ -17,6 +17,8 @@ extends Node
 @onready var blue_box_2 = $"../BlueBox2"
 @onready var green_box_1 = $"../GreenBox1"
 @onready var green_box_2 = $"../GreenBox2"
+
+
 
 @onready var boxes = [
 	red_box_1, red_box_2, blue_box_1, blue_box_2, green_box_1, green_box_2
@@ -79,6 +81,7 @@ func spawn_paperClips():
 		add_child(clip)
 		
 func _on_clip_placed():
+	paperclip_sound.play()
 	max_clips -= 1
 	print("Clip placed! Remaining clips:", max_clips)
 	

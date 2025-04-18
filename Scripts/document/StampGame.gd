@@ -7,6 +7,8 @@ extends Node
 @onready var hand_animator: AnimationPlayer = $Node2D/AnimationPlayer
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var paper_sound: AudioStreamPlayer = $PaperSound
+@onready var stamp_sound: AudioStreamPlayer = $StampSound
 
 const DOCUMENT_1 = preload("res://Scenes/documents/document_1.tscn")
 const DOCUMENT_2 = preload("res://Scenes/documents/document_2.tscn")
@@ -15,6 +17,7 @@ const DOCUMENT_4 = preload("res://Scenes/documents/document_4.tscn")
 const DOCUMENT_5 = preload("res://Scenes/documents/document_5.tscn")
 const DOCUMENT_6 = preload("res://Scenes/documents/document_6.tscn")
 const LMAG = preload("res://Scenes/documents/lmag.tscn")
+
 
 
 var document_scenes = [
@@ -67,6 +70,7 @@ func _on_lmag_placed():
 	document_count-=1;
 	hand_animator.play("default")
 	await get_tree().create_timer(0.3).timeout 
+	paper_sound.play()
 	if(document_index + 1 < 6):
 		document_index+=1;
 	elif document_index == 6:
@@ -80,9 +84,10 @@ func _on_lmag_placed():
 func _on_add_mark_signal(x_pos: int, y_pos: int) -> void:
 	var mark: Node2D = LMAG.instantiate()
 	mark.position = current_document.to_local(Vector2(x_pos, y_pos))
+	stamp_sound.play()
 	current_document.add_child(mark)
 
 
 func _on_timer_timeout() -> void:
 	if(document_count != 0):
-			print("VRM isteklo")
+		print("VRM isteklo")

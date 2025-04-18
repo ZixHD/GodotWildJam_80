@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://buma33qiu3qa2"]
 
 [ext_resource type="Texture2D" uid="uid://bj12i4eo8b3o6" path="res://assets/paper clip/clipGREEN1.png" id="1_ckj8e"]
-[ext_resource type="Script" path="res://Scripts/PaperClip.gd" id="1_fs2ff"]
+[ext_resource type="Script" path="res://Scripts/paperclip/PaperClip.gd" id="1_fs2ff"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4yc7"]
 
