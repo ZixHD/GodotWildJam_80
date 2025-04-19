@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccdo0p4vffuq0"]
+[gd_scene load_steps=12 format=3 uid="uid://ccdo0p4vffuq0"]
 
 [ext_resource type="Texture2D" uid="uid://d2pq6w3sg0s6n" path="res://assets/health/background.png" id="1_71gsu"]
 [ext_resource type="Script" path="res://Scripts/health/health.gd" id="1_g4whi"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://h4rfbjj5fw0i" path="res://assets/health/heart2.png" id="3_mw7ly"]
 [ext_resource type="Texture2D" uid="uid://dmxek8sdsi77u" path="res://assets/health/heart 1.png" id="4_jn87e"]
 [ext_resource type="Texture2D" uid="uid://c2y0qivtraqqf" path="res://assets/health/GAMEOVER.png" id="5_oth6g"]
+[ext_resource type="FontFile" uid="uid://bvy0pmjs587vq" path="res://assets/font/KirangHaerang-Regular.ttf" id="8_34d2d"]
+[ext_resource type="Texture2D" uid="uid://cj8lvtudi8sta" path="res://assets/tasks/returntomenu.png" id="9_5hp2j"]
+[ext_resource type="AudioStream" uid="uid://bsfq2gqlffixe" path="res://assets/audio/mouseclick.mp3" id="10_a5n8l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_67clk"]
 animations = [{
@@ -31,12 +34,12 @@ animations = [{
 [node name="Health" type="Node"]
 script = ExtResource("1_g4whi")
 
-[node name="TextureRect1" type="TextureRect" parent="."]
+[node name="ScoreScreen" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_71gsu")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="GameOver" type="TextureRect" parent="."]
 visible = false
 offset_right = 700.0
 offset_bottom = 600.0
@@ -45,12 +48,31 @@ texture = ExtResource("3_b6547")
 [node name="Hearts" type="AnimatedSprite2D" parent="."]
 position = Vector2(362, 310)
 sprite_frames = SubResource("SpriteFrames_67clk")
-frame = 3
 
 [node name="Label" type="Label" parent="."]
 offset_left = 243.0
 offset_top = 402.0
 offset_right = 484.0
 offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("8_34d2d")
+theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ReturnToMenu" type="TextureButton" parent="."]
+visible = false
+offset_left = 392.0
+offset_top = 66.0
+offset_right = 680.0
+offset_bottom = 106.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ReturnToMenu"]
+position = Vector2(143, 26)
+scale = Vector2(0.614583, 0.614583)
+texture = ExtResource("9_5hp2j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_a5n8l")
+volume_db = 20.0
+
+[connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

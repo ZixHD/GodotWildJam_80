@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://brq8ko51sfmv"]
+[gd_scene load_steps=76 format=3 uid="uid://brq8ko51sfmv"]
 
 [ext_resource type="Script" path="res://Scripts/coffee/coffee_game.gd" id="1_5r3oa"]
 [ext_resource type="Texture2D" uid="uid://d1f7d8x086b80" path="res://assets/coffee_maker_minigame/background with maker/coffee minigame layout 1.png" id="2_rvnek"]
@@ -70,6 +70,8 @@
 [ext_resource type="Texture2D" uid="uid://bpn20tfaki4m4" path="res://assets/coffee_maker_minigame/anims/coffee cup animation/60.png" id="68_skeah"]
 [ext_resource type="Texture2D" uid="uid://c5p6okbmj5wla" path="res://assets/coffee_maker_minigame/anims/coffee flow/999.png" id="69_houv5"]
 [ext_resource type="Texture2D" uid="uid://brhm6jeb072j0" path="res://assets/coffee_maker_minigame/assets/coffee limit.png" id="70_ck311"]
+[ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="71_53inb"]
+[ext_resource type="Texture2D" uid="uid://c2q5r4hmahuko" path="res://assets/tasks/coffee.png" id="72_5l732"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m6vjt"]
 animations = [{
@@ -268,6 +270,20 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7omlv"]
+bg_color = Color(0.610296, 0.0515336, 0.146429, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txutx"]
+bg_color = Color(1, 0.101961, 0.188235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="CoffeeGame" type="Node"]
 script = ExtResource("1_5r3oa")
 
@@ -301,6 +317,7 @@ texture_normal = ExtResource("6_qst4i")
 texture_pressed = ExtResource("7_f3m6e")
 
 [node name="CoffeeMug" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 1
 texture_filter = 1
 position = Vector2(346, 356)
@@ -318,27 +335,51 @@ position = Vector2(354, 330.5)
 scale = Vector2(0.907216, 1.00001)
 texture = ExtResource("70_ck311")
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(1, 0, 0, 1)
+visible = false
 z_index = 10
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -312.5
-offset_top = -105.0
-offset_right = 312.5
+offset_left = -312.0
+offset_top = -100.0
+offset_right = 313.0
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_7omlv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_txutx")
 max_value = 15.0
-value = 15.0
+value = 10.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tutorial" type="TextureRect" parent="."]
+visible = false
+offset_right = 700.0
+offset_bottom = 600.0
+texture = ExtResource("71_53inb")
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("72_5l732")
 
 [connection signal="pressed" from="Go" to="." method="_on_go_pressed"]
 [connection signal="pressed" from="Stop" to="." method="_on_stop_pressed"]

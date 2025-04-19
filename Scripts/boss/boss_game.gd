@@ -7,6 +7,8 @@ extends Node
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var boss_timer: Timer = $Boss/BossTimer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var tutorial: TextureRect = $Tutorial
 
 
 signal game_finished
@@ -26,6 +28,10 @@ var boss_frames;
 var boss_current_frame = 0
 var game_over = false;
 func _ready() -> void:
+	await get_tree().create_timer(2).timeout;
+	tutorial.visible = false;
+	progress_bar.visible = true;
+	total_time *= GameManager.multiplyer
 	scares_dup = scares.duplicate();
 	scares_dup.shuffle();
 	frames = monitor.sprite_frames
@@ -50,6 +56,7 @@ func _process(_delta: float) -> void:
 		
 func click():
 	if(Input.is_action_just_pressed("click")):
+			audio_stream_player.play()
 			points += 2;
 			current_frame = (current_frame + 1) % frame_count
 			if(current_frame == 0):

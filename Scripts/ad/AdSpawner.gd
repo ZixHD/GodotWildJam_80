@@ -8,6 +8,8 @@ extends Node
 @onready var spawn_6: Marker2D = $Markers/Spawn6
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var tutorial: TextureRect = $Tutorial
 
 @onready var markers = [spawn_1, spawn_2, spawn_3, spawn_4, spawn_5, spawn_6]
 
@@ -31,6 +33,7 @@ var game_end = false;
 func _process(_delta):
 	if !game_end and timer.time_left > 0:
 		if(max_ads == 0):
+			await get_tree().create_timer(0.1).timeout;
 			timer.queue_free()
 			progress_bar.queue_free()
 			game_end = true;
@@ -42,6 +45,10 @@ func _process(_delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	await get_tree().create_timer(2).timeout;
+	tutorial.visible = false;
+	progress_bar.visible = true;
+	total_time *= GameManager.multiplyer
 	max_ads = ad_scenes.size();
 	progress_bar.min_value = 0
 	progress_bar.max_value = 100
@@ -65,6 +72,7 @@ func spawn_ad():
 
 func _on_ad_closed():
 	max_ads -= 1
+	audio_stream_player.play()
 	print("Ad closed! Remaining ads:", max_ads)
 	
 func _on_timer_timeout():

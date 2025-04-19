@@ -9,6 +9,7 @@ extends Node
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var paper_sound: AudioStreamPlayer = $PaperSound
 @onready var stamp_sound: AudioStreamPlayer = $StampSound
+@onready var tutorial: TextureRect = $Tutorial
 
 const DOCUMENT_1 = preload("res://Scenes/documents/document_1.tscn")
 const DOCUMENT_2 = preload("res://Scenes/documents/document_2.tscn")
@@ -17,6 +18,7 @@ const DOCUMENT_4 = preload("res://Scenes/documents/document_4.tscn")
 const DOCUMENT_5 = preload("res://Scenes/documents/document_5.tscn")
 const DOCUMENT_6 = preload("res://Scenes/documents/document_6.tscn")
 const LMAG = preload("res://Scenes/documents/lmag.tscn")
+const DOCUMENT_COUNT = 4;
 
 
 
@@ -27,15 +29,22 @@ var document_scenes = [
 signal game_finished
 signal game_lost
 var document_index = 0;
-var document_count = document_scenes.size();
+var document_count = DOCUMENT_COUNT;
 var current_document: Node2D = null
-var spawn_flag = true;
+var spawn_flag;
 var animator: AnimatedSprite2D;
 var change_paper = false;
 var total_time = 10
 var shuffled_docs;
 
 func _ready() -> void:	
+	await get_tree().create_timer(1.5).timeout;
+	tutorial.visible = false;
+	stamp.visible = true;
+	progress_bar.visible = true;
+	spawn_flag = true;
+	total_time *= GameManager.multiplyer
+	print("total_time", total_time)
 	stamp.connect("add_mark_signal", Callable(self, "_on_add_mark_signal"))
 	progress_bar.min_value = 0
 	progress_bar.max_value = 100
@@ -52,6 +61,7 @@ func _process(_delta: float) -> void:
 		
 	if timer.time_left > 0:
 		if(document_count == 0):
+			await get_tree().create_timer(0.1).timeout 
 			timer.queue_free()
 			progress_bar.queue_free()
 			emit_signal("game_finished")
@@ -61,7 +71,6 @@ func _process(_delta: float) -> void:
 		progress_bar.value = 0
 		
 func spawn_document():
-	
 	spawn_flag = false;
 	current_document = shuffled_docs[document_index].instantiate()
 	current_document.global_position = spawn.global_position
@@ -76,9 +85,9 @@ func _on_lmag_placed():
 	hand_animator.play("default")
 	await get_tree().create_timer(0.3).timeout 
 	paper_sound.play()
-	if(document_index + 1 < 6):
+	if(document_index + 1 < DOCUMENT_COUNT):
 		document_index+=1;
-	elif document_index == 6:
+	if document_index == DOCUMENT_COUNT:
 		return;
 
 	current_document.queue_free()

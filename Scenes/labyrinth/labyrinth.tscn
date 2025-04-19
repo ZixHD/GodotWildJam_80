@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://knfg6jxxwojk"]
+
+[ext_resource type="Texture2D" uid="uid://b4sdfr4vvvrjd" path="res://assets/labyrinth/background.png" id="1_5p2f2"]
+[ext_resource type="Script" path="res://Scripts/labyrinth/labyrinth.gd" id="1_5rp3t"]
+[ext_resource type="Texture2D" uid="uid://dpja0qm440smo" path="res://assets/labyrinth/table.png" id="3_nrdej"]
+[ext_resource type="Texture2D" uid="uid://nk74uvl1o75q" path="res://assets/labyrinth/table 2.png" id="4_e8end"]
+[ext_resource type="Texture2D" uid="uid://cee3hd1r3t1t7" path="res://assets/labyrinth/table 3.png" id="5_mpoyl"]
+[ext_resource type="Texture2D" uid="uid://dba7c67rryqmc" path="res://assets/labyrinth/boss.png" id="6_s42l7"]
+[ext_resource type="Texture2D" uid="uid://qevpkaqgy14h" path="res://assets/labyrinth/person 1.png" id="7_u40wp"]
+
+[node name="Labyrinth" type="Node"]
+script = ExtResource("1_5rp3t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5p2f2")
+
+[node name="Markers" type="Node" parent="."]
+
+[node name="Spawn1" type="Marker2D" parent="Markers"]
+
+[node name="Spawn2" type="Marker2D" parent="Markers"]
+
+[node name="Spawn3" type="Marker2D" parent="Markers"]
+
+[node name="Desks" type="Node" parent="."]
+
+[node name="Desk1" type="Area2D" parent="Desks"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Desks/Desk1"]
+position = Vector2(331, 139)
+texture = ExtResource("3_nrdej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk1"]
+
+[node name="Desk2" type="Area2D" parent="Desks"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Desks/Desk2"]
+position = Vector2(571, 251)
+texture = ExtResource("4_e8end")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk2"]
+
+[node name="Desk3" type="Area2D" parent="Desks"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Desks/Desk3"]
+position = Vector2(244, 397)
+texture = ExtResource("5_mpoyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk3"]
+
+[node name="Boss" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Boss"]
+position = Vector2(137, 53)
+texture = ExtResource("6_s42l7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(707, 535)
+texture = ExtResource("7_u40wp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

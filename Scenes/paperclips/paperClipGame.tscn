@@ -1,11 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck25ir4khvoef"]
+[gd_scene load_steps=10 format=3 uid="uid://ck25ir4khvoef"]
 
 [ext_resource type="Texture2D" uid="uid://cua0uuyuf13t0" path="res://assets/paperclip/pozadina.png" id="1_s661j"]
 [ext_resource type="Script" path="res://Scripts/paperclip/PaperclipBox.gd" id="2_e34rp"]
 [ext_resource type="Script" path="res://Scripts/paperclip/PaperClipSpawner.gd" id="3_feo5l"]
 [ext_resource type="AudioStream" uid="uid://bq5dem70kxweu" path="res://assets/audio/spajalica1.mp3" id="4_g7af7"]
+[ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="5_7e66d"]
+[ext_resource type="Texture2D" uid="uid://denerleaekjru" path="res://assets/tasks/paperclips.png" id="6_ssd6k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btei7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o47ed"]
+bg_color = Color(0.610296, 0.0515336, 0.146429, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djy7v"]
+bg_color = Color(1, 0.101961, 0.188235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="PaperClip" type="Node"]
 script = ExtResource("3_feo5l")
@@ -141,23 +157,49 @@ position = Vector2(274, 370)
 [node name="Timer" type="Timer" parent="PaperClips"]
 one_shot = true
 
-[node name="ProgressBar" type="ProgressBar" parent="PaperClips"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 z_index = 10
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -315.0
-offset_top = -88.0
-offset_right = 315.0
-offset_bottom = -61.0
+offset_left = -312.0
+offset_top = -100.0
+offset_right = 313.0
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_o47ed")
+theme_override_styles/fill = SubResource("StyleBoxFlat_djy7v")
+max_value = 15.0
+value = 10.0
+show_percentage = false
 
 [node name="PaperclipSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_g7af7")
+
+[node name="Tutorial" type="TextureRect" parent="."]
+offset_right = 700.0
+offset_bottom = 600.0
+texture = ExtResource("5_7e66d")
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ssd6k")
 
 [connection signal="timeout" from="PaperClips/Timer" to="." method="_on_timer_timeout"]

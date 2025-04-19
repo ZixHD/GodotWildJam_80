@@ -1,13 +1,17 @@
 extends Node
 
-var health = 3
-var points = 0;
+@onready var sountrack: AudioStreamPlayer = $Sountrack
+
 const AD_GAME = preload("res://Scenes/ads/desktop.tscn")
 const COFFEE_GAME = preload("res://Scenes/coffee/coffee_game.tscn")
 const STAMP_GAME = preload("res://Scenes/documents/stamp_game.tscn")
 const PAPER_CLIP_GAME = preload("res://Scenes/paperclips/paperClipGame.tscn")
 const BOSS_GAME = preload("res://Scenes/boss/boss_game.tscn")
 const HEALTH = preload("res://Scenes/health/health.tscn")
+
+var health = 3
+var points = 0;
+var multiplyer = 1;
 
 var game_array = [
 	AD_GAME, COFFEE_GAME, STAMP_GAME, PAPER_CLIP_GAME, BOSS_GAME
@@ -19,6 +23,7 @@ var interlude = false;
 
 func _ready() -> void:
 	shuffle_games()
+	sountrack.play()
 
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("space")):
@@ -32,6 +37,7 @@ func start_game():
 	if current_game_index >= shuffled_games.size():
 		shuffle_games()
 		current_game_index = 0;
+		multiplyer -= 0.1
 	if interlude:
 		var health_scene = HEALTH.instantiate();
 		add_child(health_scene)
@@ -67,4 +73,10 @@ func _on_game_lost():
 		else:
 			current_game_index += 1
 			start_game()
-			
+
+func reset_game():
+	shuffle_games()
+	current_game_index = 0;
+	health = 3
+	points = 0;
+	multiplyer = 1;

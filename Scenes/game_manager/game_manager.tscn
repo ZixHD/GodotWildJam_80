@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://busud43ruwj0y"]
+[gd_scene load_steps=3 format=3 uid="uid://busud43ruwj0y"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager/game_manager.gd" id="1_nvcm8"]
+[ext_resource type="AudioStream" uid="uid://ckwx8gv2kyn4i" path="res://assets/audio/theme.mp3" id="2_aypet"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_nvcm8")
+
+[node name="Sountrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_aypet")

@@ -9,6 +9,7 @@ extends Node
 
 
 func _ready():
+	GameManager.reset_game()
 	animation_player_1.play("idle");
 	animation_player_2.play("idle");
 

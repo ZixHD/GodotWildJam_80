@@ -16,6 +16,7 @@ extends Node
 @onready var green_box_1: TextureRect = $GreenBox1
 @onready var green_box_2: TextureRect = $GreenBox2
 @onready var paper_clips: Node = $PaperClips
+@onready var tutorial: TextureRect = $Tutorial
 
 @onready var markers = [spawn_1, spawn_2, spawn_3, spawn_4, spawn_5, spawn_6]
 @onready var boxes = [
@@ -38,6 +39,10 @@ var total_time = 10.0
 var game_end = false;
 
 func _ready():
+	await get_tree().create_timer(2).timeout;
+	tutorial.visible = false;
+	progress_bar.visible = true;
+	total_time *= GameManager.multiplyer
 	for box in boxes:
 		box.connect("clip_placed", Callable(self, "_on_clip_placed"))
 	max_clips = clip_scenes.size()
@@ -84,6 +89,7 @@ func _on_clip_placed():
 	print("Clip placed! Remaining clips:", max_clips)
 	if max_clips == 0:
 		print("All clips placed!")
+		await get_tree().create_timer(0.1).timeout;
 		emit_signal("game_finished")
 		paper_clips.queue_free()
 		

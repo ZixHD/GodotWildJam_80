@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://j1ma5rxusc3a"]
+[gd_scene load_steps=16 format=3 uid="uid://j1ma5rxusc3a"]
 
 [ext_resource type="Texture2D" uid="uid://c1pkhbnw222vf" path="res://assets/desktop/screenbase2.png" id="1_pic8s"]
 [ext_resource type="Texture2D" uid="uid://0rnigdxrct2y" path="res://assets/desktop/windows_logo-removebg-preview.png" id="2_4bv2n"]
@@ -7,6 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://v4j7c3uc8iia" path="res://assets/desktop/explorer-removebg-preview.png" id="5_ujdu7"]
 [ext_resource type="Texture2D" uid="uid://bgkomtpl0ncwr" path="res://assets/desktop/trashbin-removebg-preview.png" id="6_qhrxp"]
 [ext_resource type="Script" path="res://Scripts/ad/AdSpawner.gd" id="7_3748g"]
+[ext_resource type="AudioStream" uid="uid://bsfq2gqlffixe" path="res://assets/audio/mouseclick.mp3" id="8_5jdv6"]
+[ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="9_kg2i5"]
+[ext_resource type="Texture2D" uid="uid://d08levfxmj5di" path="res://assets/tasks/ads.png" id="10_g7ovo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2ubk"]
+bg_color = Color(0.610296, 0.0515336, 0.146429, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er35m"]
+bg_color = Color(1, 0.101961, 0.188235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="Animation" id="Animation_xjycy"]
 length = 15.0
@@ -71,48 +88,81 @@ texture = ExtResource("6_qhrxp")
 [node name="Markers" type="Node" parent="."]
 
 [node name="Spawn1" type="Marker2D" parent="Markers"]
+visible = false
 position = Vector2(222, 230)
 
 [node name="Spawn2" type="Marker2D" parent="Markers"]
+visible = false
 position = Vector2(367, 159)
 
 [node name="Spawn3" type="Marker2D" parent="Markers"]
+visible = false
 position = Vector2(318, 307)
 
 [node name="Spawn4" type="Marker2D" parent="Markers"]
+visible = false
 position = Vector2(410, 364)
 
 [node name="Spawn5" type="Marker2D" parent="Markers"]
+visible = false
 position = Vector2(506, 249)
 
 [node name="Spawn6" type="Marker2D" parent="Markers"]
+visible = false
 position = Vector2(238, 396)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(1, 0, 0, 1)
+visible = false
 z_index = 10
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -312.5
-offset_top = -105.0
-offset_right = 312.5
+offset_left = -312.0
+offset_top = -100.0
+offset_right = 313.0
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_c2ubk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_er35m")
 max_value = 15.0
-value = 15.0
+value = 10.0
+show_percentage = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_keoa3")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5jdv6")
+volume_db = 20.0
+
+[node name="Tutorial" type="TextureRect" parent="."]
+offset_right = 700.0
+offset_bottom = 600.0
+texture = ExtResource("9_kg2i5")
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_g7ovo")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

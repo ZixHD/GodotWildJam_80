@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://byy1qi0qg54g"]
+[gd_scene load_steps=27 format=3 uid="uid://byy1qi0qg54g"]
 
 [ext_resource type="Script" path="res://Scripts/document/StampGame.gd" id="1_me3ql"]
 [ext_resource type="Texture2D" uid="uid://7301ehrux6gc" path="res://assets/stamp/pozadina.png" id="1_sax3r"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cpftgfu8qxfu" path="res://assets/stamp/ruka/ruka9.png" id="13_sdorj"]
 [ext_resource type="AudioStream" uid="uid://c1w6yjnflnytw" path="res://assets/audio/papir.mp3" id="14_r1xbs"]
 [ext_resource type="AudioStream" uid="uid://bsnxr857ud7q8" path="res://assets/audio/pecat.mp3" id="15_trqfa"]
+[ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="16_gwuua"]
+[ext_resource type="Texture2D" uid="uid://j8eaf5swqcj5" path="res://assets/tasks/old/pts3.png" id="17_qcvym"]
 
 [sub_resource type="Animation" id="Animation_kuvf8"]
 length = 0.001
@@ -110,6 +112,20 @@ _data = {
 "default": SubResource("Animation_vkahn")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyjxx"]
+bg_color = Color(0.610296, 0.0515336, 0.146429, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nxpn"]
+bg_color = Color(1, 0.101961, 0.188235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="StampGame" type="Node"]
 script = ExtResource("1_me3ql")
 
@@ -122,6 +138,7 @@ texture = ExtResource("1_sax3r")
 position = Vector2(345, 342)
 
 [node name="Stamp" parent="." instance=ExtResource("3_5nufv")]
+visible = false
 z_index = 5
 position = Vector2(76, 142)
 script = ExtResource("4_6x2q5")
@@ -151,28 +168,51 @@ wait_time = 0.1
 one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(1, 0, 0, 1)
+visible = false
 z_index = 10
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -312.5
-offset_top = -105.0
-offset_right = 312.5
+offset_left = -312.0
+offset_top = -100.0
+offset_right = 313.0
 offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_eyjxx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8nxpn")
 max_value = 15.0
-value = 15.0
+value = 10.0
+show_percentage = false
 
 [node name="PaperSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_r1xbs")
 
 [node name="StampSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_trqfa")
+
+[node name="Tutorial" type="TextureRect" parent="."]
+offset_right = 700.0
+offset_bottom = 600.0
+texture = ExtResource("16_gwuua")
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_qcvym")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
