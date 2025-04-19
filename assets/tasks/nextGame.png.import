@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqk5obis71k5q"
-path="res://.godot/imported/pts1.png-f01d48c6658acec3df2a666e22b97ede.ctex"
+uid="uid://cfob52lwmo61j"
+path="res://.godot/imported/nextGame.png-a5d78903e07158eb6aaeddb589dbf3df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tasks/pts1.png"
-dest_files=["res://.godot/imported/pts1.png-f01d48c6658acec3df2a666e22b97ede.ctex"]
+source_file="res://assets/tasks/nextGame.png"
+dest_files=["res://.godot/imported/nextGame.png-a5d78903e07158eb6aaeddb589dbf3df.ctex"]
 
 [params]
 
