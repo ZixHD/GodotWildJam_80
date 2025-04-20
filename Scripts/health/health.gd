@@ -5,6 +5,8 @@ extends Node
 @onready var label: Label = $Label
 @onready var return_to_menu: TextureButton = $ReturnToMenu
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var highscore: TextureRect = $Highscore
+@onready var highscore_label: Label = $HighscoreLabel
 
 const MENU = preload("res://Scenes/menu/menu.tscn")
 var heart_frames;
@@ -13,10 +15,12 @@ func _ready() -> void:
 	heart_frames = hearts.sprite_frames
 	select_sprite()
 	label.text = str(GameManager.points)
-
+	highscore_label.text = str(GameManager.highscore)
 func select_sprite():
 	var health = GameManager.health
 	if(health == 0):
+		highscore.visible = true;
+		highscore_label.visible = true;
 		score_screen.visible = false;
 		game_over.visible = true;
 		return_to_menu.visible = true;

@@ -12,7 +12,8 @@ const LABYRINTH = preload("res://Scenes/labyrinth/labyrinth.tscn")
 var health = 3
 var points = 0;
 var multiplyer = 1;
-
+var highscore = 0;
+var health_scene_instance: Node = null
 var game_array = [
 	AD_GAME, COFFEE_GAME, STAMP_GAME, PAPER_CLIP_GAME, BOSS_GAME, LABYRINTH
 ]
@@ -67,16 +68,24 @@ func _on_game_lost():
 		health -=1
 		print("Lost 1hp")
 		if(health == 0):
-			remove_child(current_game_instance)
-			var health_scene = HEALTH.instantiate();
-			add_child(health_scene)
+			if(points > highscore):
+				highscore = points;
+			call_deferred("remove_child", current_game_instance)
+			health_scene_instance = HEALTH.instantiate()
+			add_child(health_scene_instance)
 		else:
 			current_game_index += 1
 			start_game()
 
 func reset_game():
+	if health_scene_instance:
+		call_deferred("remove_child", health_scene_instance)
+		health_scene_instance.queue_free()
+		health_scene_instance = null
+
 	shuffle_games()
 	current_game_index = 0;
 	health = 3
 	points = 0;
 	multiplyer = 1;
+	interlude = false;
