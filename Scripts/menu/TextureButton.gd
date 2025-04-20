@@ -7,8 +7,8 @@ extends Node
 @onready var animation_player_1: AnimationPlayer = $TextureRect/VBoxContainer/TextureButton1/AnimationPlayer1
 @onready var animation_player_2: AnimationPlayer = $TextureRect/VBoxContainer/TextureButton2/AnimationPlayer2
 
-
 func _ready():
+	get_all_scene_roots()
 	GameManager.reset_game()
 	animation_player_1.play("idle");
 	animation_player_2.play("idle");
@@ -25,3 +25,8 @@ func _on_texture_button_2_pressed() -> void:
 	audio_stream_player.play()
 	await get_tree().create_timer(0.2).timeout
 	get_tree().quit(0)
+	
+func get_all_scene_roots():
+	var children = get_tree().get_root().get_children()
+	for node in children:
+		print("Scene Root: ", node.name)
