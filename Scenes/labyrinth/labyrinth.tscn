@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://knfg6jxxwojk"]
+[gd_scene load_steps=14 format=3 uid="uid://knfg6jxxwojk"]
 
 [ext_resource type="Texture2D" uid="uid://b4sdfr4vvvrjd" path="res://assets/labyrinth/background.png" id="1_5p2f2"]
 [ext_resource type="Script" path="res://Scripts/labyrinth/labyrinth.gd" id="1_5rp3t"]
@@ -7,61 +7,169 @@
 [ext_resource type="Texture2D" uid="uid://cee3hd1r3t1t7" path="res://assets/labyrinth/table 3.png" id="5_mpoyl"]
 [ext_resource type="Texture2D" uid="uid://dba7c67rryqmc" path="res://assets/labyrinth/boss.png" id="6_s42l7"]
 [ext_resource type="Texture2D" uid="uid://qevpkaqgy14h" path="res://assets/labyrinth/person 1.png" id="7_u40wp"]
+[ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="8_4ix3y"]
+[ext_resource type="Texture2D" uid="uid://d08levfxmj5di" path="res://assets/tasks/ads.png" id="9_kmpy3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7fyh"]
+radius = 26.6833
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o126t"]
+radius = 20.025
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvjop"]
+bg_color = Color(0.610296, 0.0515336, 0.146429, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4fmb"]
+bg_color = Color(1, 0.101961, 0.188235, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Labyrinth" type="Node"]
 script = ExtResource("1_5rp3t")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -68.0
+offset_top = -4.0
+offset_right = 732.0
+offset_bottom = 596.0
 texture = ExtResource("1_5p2f2")
 
-[node name="Markers" type="Node" parent="."]
+[node name="CollisionObjects" type="Node" parent="."]
 
-[node name="Spawn1" type="Marker2D" parent="Markers"]
+[node name="Desks" type="Node" parent="CollisionObjects"]
 
-[node name="Spawn2" type="Marker2D" parent="Markers"]
+[node name="Desk1" type="Area2D" parent="CollisionObjects/Desks"]
+position = Vector2(221, 134)
 
-[node name="Spawn3" type="Marker2D" parent="Markers"]
-
-[node name="Desks" type="Node" parent="."]
-
-[node name="Desk1" type="Area2D" parent="Desks"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Desks/Desk1"]
-position = Vector2(331, 139)
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/Desks/Desk1"]
 texture = ExtResource("3_nrdej")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/Desks/Desk1"]
+polygon = PackedVector2Array(-48, -64, 58, -65, 59, 63, -49, 62, -49, 33, 26, 32, 26, -36, -48, -36)
 
-[node name="Desk2" type="Area2D" parent="Desks"]
+[node name="Desk2" type="Area2D" parent="CollisionObjects/Desks"]
+position = Vector2(520, 189)
 
-[node name="Sprite2D" type="Sprite2D" parent="Desks/Desk2"]
-position = Vector2(571, 251)
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/Desks/Desk2"]
 texture = ExtResource("4_e8end")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/Desks/Desk2"]
+polygon = PackedVector2Array(-84, -71, -125, -14, -130, 20, -42, 75, -20, 110, 58, 123, 93, 107, 130, -26, 86, -103, 55, -124, -40, -75)
 
-[node name="Desk3" type="Area2D" parent="Desks"]
+[node name="Desk3" type="Area2D" parent="CollisionObjects/Desks"]
+position = Vector2(166, 412)
 
-[node name="Sprite2D" type="Sprite2D" parent="Desks/Desk3"]
-position = Vector2(244, 397)
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/Desks/Desk3"]
 texture = ExtResource("5_mpoyl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Desks/Desk3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/Desks/Desk3"]
+polygon = PackedVector2Array(41, -135, -39, -135, -85, -116, -118, -84, -133, -39, -133, 40, -114, 89, -85, 115, -39, 133, 41, 134, 82, 122, 114, 92, 134, 40, 134, -40, 118, -91, 83, -117)
+
+[node name="Desk4" type="Area2D" parent="CollisionObjects/Desks"]
+position = Vector2(396, 424)
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/Desks/Desk4"]
+texture = ExtResource("3_nrdej")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/Desks/Desk4"]
+polygon = PackedVector2Array(-48, -64, 58, -65, 59, 63, -49, 62, -49, 33, 26, 32, 26, -36, -48, -36)
+
+[node name="StartingWall1" type="Area2D" parent="CollisionObjects"]
+position = Vector2(572, 452)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/StartingWall1"]
+polygon = PackedVector2Array(-7, 45, 3, 45, 3, 4, 159, 4, 159, -7, -7, -6)
+
+[node name="StartingWall2" type="Area2D" parent="CollisionObjects"]
+position = Vector2(570, 576)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/StartingWall2"]
+polygon = PackedVector2Array(-5, 22, -5, -13, 6, -13, 5, 21)
+
+[node name="FinishWall1" type="Area2D" parent="CollisionObjects"]
+position = Vector2(115, 92)
+
+[node name="FinishWall2" type="Area2D" parent="CollisionObjects"]
+position = Vector2(115, 15)
 
 [node name="Boss" type="Area2D" parent="."]
+position = Vector2(34, 51)
 
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
-position = Vector2(137, 53)
+position = Vector2(3, 2)
 texture = ExtResource("6_s42l7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boss"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_x7fyh")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(631, 532)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(707, 535)
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("7_u40wp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_o126t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -100.0
+offset_right = 313.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_kvjop")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e4fmb")
+max_value = 15.0
+value = 10.0
+show_percentage = false
+
+[node name="Tutorial" type="TextureRect" parent="."]
+offset_right = 700.0
+offset_bottom = 600.0
+texture = ExtResource("8_4ix3y")
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_kmpy3")
+
+[connection signal="body_entered" from="CollisionObjects/Desks/Desk1" to="." method="_on_desk_1_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/Desks/Desk2" to="." method="_on_desk_2_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/Desks/Desk3" to="." method="_on_desk_3_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/Desks/Desk4" to="." method="_on_desk_4_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/StartingWall1" to="." method="_on_starting_wall_1_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/StartingWall2" to="." method="_on_starting_wall_2_body_entered"]
+[connection signal="body_entered" from="Boss" to="." method="_on_boss_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

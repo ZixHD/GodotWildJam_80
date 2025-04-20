@@ -8,7 +8,7 @@ var original_texture: Texture2D
 var drag_success := false
 
 
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	if !can_drag or texture == null:
 		return null
 

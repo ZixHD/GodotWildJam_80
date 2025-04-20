@@ -7,7 +7,7 @@ extends Node
 @onready var spawn_5: Marker2D = $Markers/Spawn5
 @onready var spawn_6: Marker2D = $Markers/Spawn6
 @onready var timer: Timer = $PaperClips/Timer
-@onready var progress_bar: ProgressBar = $PaperClips/ProgressBar
+@onready var progress_bar: ProgressBar = $ProgressBar
 @onready var paperclip_sound: AudioStreamPlayer = $PaperclipSound
 @onready var red_box_1: TextureRect = $RedBox1
 @onready var red_box_2: TextureRect = $RedBox2
@@ -52,10 +52,11 @@ func _ready():
 	spawn_paperClips()
 	
 func _process(_delta: float) -> void:
-	if timer.time_left > 0:
-		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
-	else:
-		progress_bar.value = 0
+	if(progress_bar):
+		if timer.time_left > 0:
+			progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
+		else:
+			progress_bar.value = 0
 
 
 func spawn_paperClips():

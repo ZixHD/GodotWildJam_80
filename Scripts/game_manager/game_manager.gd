@@ -8,13 +8,13 @@ const STAMP_GAME = preload("res://Scenes/documents/stamp_game.tscn")
 const PAPER_CLIP_GAME = preload("res://Scenes/paperclips/paperClipGame.tscn")
 const BOSS_GAME = preload("res://Scenes/boss/boss_game.tscn")
 const HEALTH = preload("res://Scenes/health/health.tscn")
-
+const LABYRINTH = preload("res://Scenes/labyrinth/labyrinth.tscn")
 var health = 3
 var points = 0;
 var multiplyer = 1;
 
 var game_array = [
-	AD_GAME, COFFEE_GAME, STAMP_GAME, PAPER_CLIP_GAME, BOSS_GAME
+	AD_GAME, COFFEE_GAME, STAMP_GAME, PAPER_CLIP_GAME, BOSS_GAME, LABYRINTH
 ]
 var shuffled_games = []
 var current_game_index = 0
@@ -25,7 +25,7 @@ func _ready() -> void:
 	shuffle_games()
 	sountrack.play()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("space")):
 		current_game_index += 1
 		start_game()
@@ -56,7 +56,7 @@ func shuffle_games():
 	shuffled_games.shuffle()
 	
 func _on_game_finished():
-	remove_child(current_game_instance)
+	call_deferred("remove_child", current_game_instance)
 	points += 100
 	print("Point: ", points)
 	current_game_index += 1
