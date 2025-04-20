@@ -38,7 +38,9 @@ var total_time = 10
 var shuffled_docs;
 
 func _ready() -> void:	
-	await get_tree().create_timer(1.5).timeout;
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	await get_tree().create_timer(2).timeout;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	tutorial.visible = false;
 	stamp.visible = true;
 	progress_bar.visible = true;

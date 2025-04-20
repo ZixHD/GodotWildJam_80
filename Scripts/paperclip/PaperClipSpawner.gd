@@ -39,7 +39,9 @@ var total_time = 10.0
 var game_end = false;
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().create_timer(2).timeout;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	tutorial.visible = false;
 	progress_bar.visible = true;
 	total_time *= GameManager.multiplyer

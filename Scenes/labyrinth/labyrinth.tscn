@@ -1,14 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://knfg6jxxwojk"]
+[gd_scene load_steps=22 format=3 uid="uid://knfg6jxxwojk"]
 
 [ext_resource type="Texture2D" uid="uid://b4sdfr4vvvrjd" path="res://assets/labyrinth/background.png" id="1_5p2f2"]
 [ext_resource type="Script" path="res://Scripts/labyrinth/labyrinth.gd" id="1_5rp3t"]
 [ext_resource type="Texture2D" uid="uid://dpja0qm440smo" path="res://assets/labyrinth/table.png" id="3_nrdej"]
 [ext_resource type="Texture2D" uid="uid://nk74uvl1o75q" path="res://assets/labyrinth/table 2.png" id="4_e8end"]
 [ext_resource type="Texture2D" uid="uid://cee3hd1r3t1t7" path="res://assets/labyrinth/table 3.png" id="5_mpoyl"]
+[ext_resource type="Texture2D" uid="uid://p8a6dgs20gp2" path="res://assets/labyrinth/flower1.png" id="6_l6nvj"]
 [ext_resource type="Texture2D" uid="uid://dba7c67rryqmc" path="res://assets/labyrinth/boss.png" id="6_s42l7"]
+[ext_resource type="Texture2D" uid="uid://dd6f3bbsc5vu0" path="res://assets/labyrinth/flower2.png" id="7_8fr8s"]
 [ext_resource type="Texture2D" uid="uid://qevpkaqgy14h" path="res://assets/labyrinth/person 1.png" id="7_u40wp"]
 [ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="8_4ix3y"]
-[ext_resource type="Texture2D" uid="uid://d08levfxmj5di" path="res://assets/tasks/ads.png" id="9_kmpy3"]
+[ext_resource type="Texture2D" uid="uid://e7g5pf23ep13" path="res://assets/labyrinth/chair.png" id="8_krgar"]
+[ext_resource type="Texture2D" uid="uid://tppp6ki73dm8" path="res://assets/tasks/LABYRINT.png" id="9_i78m0"]
+[ext_resource type="Texture2D" uid="uid://v0fv8twng3vj" path="res://assets/labyrinth/starthere.png" id="13_dnwyl"]
+[ext_resource type="Texture2D" uid="uid://cyix05h3ufti8" path="res://assets/audio/arrow.png" id="13_vl1tn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2yo5"]
+radius = 29.4279
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01v4p"]
+radius = 21.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihua0"]
+size = Vector2(49, 45)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x7fyh"]
 radius = 26.6833
@@ -84,20 +98,122 @@ polygon = PackedVector2Array(-48, -64, 58, -65, 59, 63, -49, 62, -49, 33, 26, 32
 [node name="StartingWall1" type="Area2D" parent="CollisionObjects"]
 position = Vector2(572, 452)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/StartingWall1"]
+[node name="SW1" type="CollisionPolygon2D" parent="CollisionObjects/StartingWall1"]
 polygon = PackedVector2Array(-7, 45, 3, 45, 3, 4, 159, 4, 159, -7, -7, -6)
 
 [node name="StartingWall2" type="Area2D" parent="CollisionObjects"]
 position = Vector2(570, 576)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionObjects/StartingWall2"]
+[node name="SW2" type="CollisionPolygon2D" parent="CollisionObjects/StartingWall2"]
 polygon = PackedVector2Array(-5, 22, -5, -13, 6, -13, 5, 21)
 
 [node name="FinishWall1" type="Area2D" parent="CollisionObjects"]
 position = Vector2(115, 92)
 
+[node name="FW1" type="CollisionPolygon2D" parent="CollisionObjects/FinishWall1"]
+polygon = PackedVector2Array(-183, 17, -5, 18, -5, 0, 5, 0, 5, 27, -183, 29)
+
 [node name="FinishWall2" type="Area2D" parent="CollisionObjects"]
 position = Vector2(115, 15)
+
+[node name="FW2" type="CollisionPolygon2D" parent="CollisionObjects/FinishWall2"]
+polygon = PackedVector2Array(-5, -19, -5, 20, 6, 20, 6, -19)
+
+[node name="RandomObjects" type="Node" parent="CollisionObjects"]
+
+[node name="Flower1" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(26, 163)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Flower1"]
+position = Vector2(1, -1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_l6nvj")
+
+[node name="F1" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Flower1"]
+shape = SubResource("CircleShape2D_i2yo5")
+
+[node name="Flower2" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(36, 229)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Flower2"]
+position = Vector2(-13, -7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_8fr8s")
+
+[node name="F2" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Flower2"]
+position = Vector2(-10, -6)
+shape = SubResource("CircleShape2D_01v4p")
+
+[node name="Flower3" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(680, 421)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Flower3"]
+position = Vector2(-13, -7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_8fr8s")
+
+[node name="F3" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Flower3"]
+position = Vector2(-10, -6)
+shape = SubResource("CircleShape2D_01v4p")
+
+[node name="Flower4" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(679, 377)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Flower4"]
+position = Vector2(-13, -7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_8fr8s")
+
+[node name="F4" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Flower4"]
+position = Vector2(-10, -6)
+shape = SubResource("CircleShape2D_01v4p")
+
+[node name="Flower5" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(678, 334)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Flower5"]
+position = Vector2(-13, -7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_8fr8s")
+
+[node name="F5" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Flower5"]
+position = Vector2(-10, -6)
+shape = SubResource("CircleShape2D_01v4p")
+
+[node name="Chair1" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(373, 46)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Chair1"]
+texture = ExtResource("8_krgar")
+
+[node name="C1" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Chair1"]
+texture_filter = 1
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_ihua0")
+
+[node name="Chair2" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(331, 296)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Chair2"]
+texture = ExtResource("8_krgar")
+
+[node name="C2" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Chair2"]
+texture_filter = 1
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_ihua0")
+
+[node name="Chair3" type="Area2D" parent="CollisionObjects/RandomObjects"]
+position = Vector2(382, 567)
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionObjects/RandomObjects/Chair3"]
+texture = ExtResource("8_krgar")
+
+[node name="C3" type="CollisionShape2D" parent="CollisionObjects/RandomObjects/Chair3"]
+texture_filter = 1
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_ihua0")
 
 [node name="Boss" type="Area2D" parent="."]
 position = Vector2(34, 51)
@@ -106,7 +222,7 @@ position = Vector2(34, 51)
 position = Vector2(3, 2)
 texture = ExtResource("6_s42l7")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boss"]
+[node name="B1" type="CollisionShape2D" parent="Boss"]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_x7fyh")
 
@@ -116,7 +232,7 @@ position = Vector2(631, 532)
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("7_u40wp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="P1" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_o126t")
 
 [node name="Timer" type="Timer" parent="."]
@@ -157,13 +273,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -241.0
+offset_top = -67.0
+offset_right = 241.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_kmpy3")
+texture = ExtResource("9_i78m0")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 464.0
+offset_right = 537.0
+offset_bottom = 558.0
+texture = ExtResource("13_vl1tn")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Tutorial"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 497.0
+offset_right = 740.0
+offset_bottom = 565.0
+texture = ExtResource("13_dnwyl")
+expand_mode = 1
 
 [connection signal="body_entered" from="CollisionObjects/Desks/Desk1" to="." method="_on_desk_1_body_entered"]
 [connection signal="body_entered" from="CollisionObjects/Desks/Desk2" to="." method="_on_desk_2_body_entered"]
@@ -171,5 +306,15 @@ texture = ExtResource("9_kmpy3")
 [connection signal="body_entered" from="CollisionObjects/Desks/Desk4" to="." method="_on_desk_4_body_entered"]
 [connection signal="body_entered" from="CollisionObjects/StartingWall1" to="." method="_on_starting_wall_1_body_entered"]
 [connection signal="body_entered" from="CollisionObjects/StartingWall2" to="." method="_on_starting_wall_2_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/FinishWall1" to="." method="_on_finish_wall_1_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/FinishWall2" to="." method="_on_finish_wall_2_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Flower1" to="." method="_on_flower_1_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Flower2" to="." method="_on_flower_2_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Flower3" to="." method="_on_flower_3_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Flower4" to="." method="_on_flower_4_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Flower5" to="." method="_on_flower_5_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Chair1" to="." method="_on_chair_1_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Chair2" to="." method="_on_chair_2_body_entered"]
+[connection signal="body_entered" from="CollisionObjects/RandomObjects/Chair3" to="." method="_on_chair_3_body_entered"]
 [connection signal="body_entered" from="Boss" to="." method="_on_boss_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

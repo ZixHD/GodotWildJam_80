@@ -9,6 +9,8 @@ extends Node
 @onready var boss_timer: Timer = $Boss/BossTimer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var tutorial: TextureRect = $Tutorial
+@onready var boss_sound: AudioStreamPlayer = $BossSound
+
 
 
 signal game_finished
@@ -28,7 +30,9 @@ var boss_frames;
 var boss_current_frame = 0
 var game_over = false;
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().create_timer(2).timeout;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	tutorial.visible = false;
 	progress_bar.visible = true;
 	total_time *= GameManager.multiplyer
@@ -91,9 +95,11 @@ func _on_boss_timer_timeout() -> void:
 		boss_current_frame = 1;
 		boss.frame = boss_current_frame
 		boss_timer.wait_time = scare_delay
+		boss_sound.play()
 		if mouse_inside:
 			await get_tree().create_timer(0.3).timeout
 			emit_signal("game_lost")
+			queue_free()
 			return
 		scares_index += 1;
 		await get_tree().create_timer(0.5).timeout

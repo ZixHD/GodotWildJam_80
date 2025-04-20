@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tppp6ki73dm8"
-path="res://.godot/imported/LABYRINT.png-45830712ad61b92989b1baa1487772b8.ctex"
+uid="uid://cyix05h3ufti8"
+path="res://.godot/imported/arrow.png-73a47e079ed614fb26cd5d00d32c092f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tasks/LABYRINT.png"
-dest_files=["res://.godot/imported/LABYRINT.png-45830712ad61b92989b1baa1487772b8.ctex"]
+source_file="res://assets/audio/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-73a47e079ed614fb26cd5d00d32c092f.ctex"]
 
 [params]
 

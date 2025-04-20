@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://c1w6yjnflnytw" path="res://assets/audio/papir.mp3" id="14_r1xbs"]
 [ext_resource type="AudioStream" uid="uid://bsnxr857ud7q8" path="res://assets/audio/pecat.mp3" id="15_trqfa"]
 [ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="16_gwuua"]
-[ext_resource type="Texture2D" uid="uid://j8eaf5swqcj5" path="res://assets/tasks/old/pts3.png" id="17_qcvym"]
+[ext_resource type="Texture2D" uid="uid://d61k4l2kfs0p" path="res://assets/tasks/stamp.png" id="17_4vvr8"]
 
 [sub_resource type="Animation" id="Animation_kuvf8"]
 length = 0.001
@@ -213,6 +213,6 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("17_qcvym")
+texture = ExtResource("17_4vvr8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

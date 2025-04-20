@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cs1igtq2o7ghg"]
+[gd_scene load_steps=20 format=3 uid="uid://cs1igtq2o7ghg"]
 
 [ext_resource type="Texture2D" uid="uid://bnqy0yyf3v4h8" path="res://assets/boss game/pozadina.png" id="1_giqrb"]
 [ext_resource type="Script" path="res://Scripts/boss/boss_game.gd" id="1_xep6s"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bsfq2gqlffixe" path="res://assets/audio/mouseclick.mp3" id="11_ls4bt"]
 [ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="12_bncty"]
 [ext_resource type="Texture2D" uid="uid://dk03vpvn0g07" path="res://assets/tasks/boss.png" id="13_vgcbh"]
+[ext_resource type="AudioStream" uid="uid://codj56es20kda" path="res://assets/audio/angryboss.mp3" id="14_dpevq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2ci4"]
 animations = [{
@@ -157,6 +158,10 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_vgcbh")
+
+[node name="BossSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_dpevq")
+volume_db = -10.0
 
 [connection signal="mouse_entered" from="Monitor/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Monitor/Area2D" to="." method="_on_area_2d_mouse_exited"]

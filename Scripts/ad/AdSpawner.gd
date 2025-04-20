@@ -45,7 +45,9 @@ func _process(_delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().create_timer(2).timeout;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	tutorial.visible = false;
 	progress_bar.visible = true;
 	total_time *= GameManager.multiplyer

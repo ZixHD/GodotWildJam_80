@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://brq8ko51sfmv"]
+[gd_scene load_steps=77 format=3 uid="uid://brq8ko51sfmv"]
 
 [ext_resource type="Script" path="res://Scripts/coffee/coffee_game.gd" id="1_5r3oa"]
 [ext_resource type="Texture2D" uid="uid://d1f7d8x086b80" path="res://assets/coffee_maker_minigame/background with maker/coffee minigame layout 1.png" id="2_rvnek"]
@@ -67,11 +67,12 @@
 [ext_resource type="Texture2D" uid="uid://bf4hkc7rwnr36" path="res://assets/coffee_maker_minigame/anims/coffee cup animation/59.png" id="65_ck40u"]
 [ext_resource type="Texture2D" uid="uid://c7sb5vf2k117j" path="res://assets/coffee_maker_minigame/anims/coffee cup animation/61.png" id="66_uur1g"]
 [ext_resource type="Texture2D" uid="uid://ba6dar4vmpka4" path="res://assets/coffee_maker_minigame/anims/coffee cup animation/62.png" id="67_ajjlq"]
-[ext_resource type="Texture2D" uid="uid://bpn20tfaki4m4" path="res://assets/coffee_maker_minigame/anims/coffee cup animation/60.png" id="68_skeah"]
 [ext_resource type="Texture2D" uid="uid://c5p6okbmj5wla" path="res://assets/coffee_maker_minigame/anims/coffee flow/999.png" id="69_houv5"]
 [ext_resource type="Texture2D" uid="uid://brhm6jeb072j0" path="res://assets/coffee_maker_minigame/assets/coffee limit.png" id="70_ck311"]
 [ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="71_53inb"]
 [ext_resource type="Texture2D" uid="uid://c2q5r4hmahuko" path="res://assets/tasks/coffee.png" id="72_5l732"]
+[ext_resource type="AudioStream" uid="uid://b6ve0vryfht2c" path="res://assets/audio/coffee.mp3" id="72_d323p"]
+[ext_resource type="AudioStream" uid="uid://ccq2crv00njvo" path="res://assets/audio/coffeebutton.mp3" id="73_yqeyq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m6vjt"]
 animations = [{
@@ -255,15 +256,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("67_ajjlq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("68_skeah")
-}, {
-"duration": 1.0,
-"texture": ExtResource("66_uur1g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("67_ajjlq")
 }],
 "loop": false,
 "name": &"default",
@@ -331,7 +323,7 @@ scale = Vector2(1, 0.847368)
 texture = ExtResource("69_houv5")
 
 [node name="Bar" type="Sprite2D" parent="."]
-position = Vector2(354, 330.5)
+position = Vector2(354, 330)
 scale = Vector2(0.907216, 1.00001)
 texture = ExtResource("70_ck311")
 
@@ -379,6 +371,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("72_5l732")
+
+[node name="CoffeeStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("72_d323p")
+
+[node name="CoffeeButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("73_yqeyq")
 
 [connection signal="pressed" from="Go" to="." method="_on_go_pressed"]
 [connection signal="pressed" from="Stop" to="." method="_on_stop_pressed"]

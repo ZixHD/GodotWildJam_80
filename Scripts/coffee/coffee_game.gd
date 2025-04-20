@@ -5,6 +5,9 @@ extends Node
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var tutorial: TextureRect = $Tutorial
+@onready var coffee_stream: AudioStreamPlayer = $CoffeeStream
+@onready var coffee_button: AudioStreamPlayer = $CoffeeButton
+
 
 signal game_finished
 signal game_lost
@@ -13,7 +16,9 @@ var total_time :float = 10.0
 var game_won = false;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().create_timer(2).timeout;
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	tutorial.visible = false;
 	progress_bar.visible = true;
 	coffee_mug.visible = true;
@@ -37,20 +42,25 @@ func _process(_delta: float) -> void:
 		progress_bar.value = (timer.time_left / total_time) * progress_bar.max_value
 	else:
 		progress_bar.value = 0
+		
+	if(coffee_mug.frame == 59):
+		emit_signal("game_lost")
+		
 
 
 func _on_go_pressed() -> void:
 	coffee_flow.visible = true;
+	coffee_button.play()
 	coffee_mug.play("default")
-	if(coffee_mug.animation_finished):
-		print("End")
+	coffee_stream.play();
 	
 
 
 func _on_stop_pressed() -> void:
 	var current_frame = coffee_mug.frame
+	coffee_button.play()
+	coffee_stream.stop();
 	if(current_frame == 54 || current_frame == 55 || current_frame == 56 ):
-		print("pobeda")
 		game_won = true;
 	if(coffee_mug.is_playing()):
 		coffee_flow.visible = false;
