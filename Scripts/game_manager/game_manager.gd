@@ -26,11 +26,6 @@ func _ready() -> void:
 	shuffle_games()
 	sountrack.play()
 
-func _process(_delta: float) -> void:
-	if(Input.is_action_just_pressed("space")):
-		current_game_index += 1
-		start_game()
-
 func start_game():
 	if current_game_instance:
 		current_game_instance.queue_free()

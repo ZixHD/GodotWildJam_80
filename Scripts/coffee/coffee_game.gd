@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 	else:
 		progress_bar.value = 0
 		
-	if(coffee_mug.frame == 59):
+	if(coffee_mug.frame >= 59):
 		emit_signal("game_lost")
 		
 
@@ -59,8 +59,8 @@ func _on_go_pressed() -> void:
 func _on_stop_pressed() -> void:
 	var current_frame = coffee_mug.frame
 	coffee_button.play()
-	coffee_stream.stop();
-	if(current_frame == 54 || current_frame == 55 || current_frame == 56 ):
+	coffee_stream.stop()
+	if(current_frame == 54 || current_frame == 55 || current_frame == 56):
 		game_won = true;
 	if(coffee_mug.is_playing()):
 		coffee_flow.visible = false;
