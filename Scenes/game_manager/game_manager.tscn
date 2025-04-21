@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://busud43ruwj0y"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager/game_manager.gd" id="1_nvcm8"]
-[ext_resource type="AudioStream" uid="uid://ckwx8gv2kyn4i" path="res://assets/audio/theme.mp3" id="2_aypet"]
+[ext_resource type="AudioStream" uid="uid://l367w3d73c2p" path="res://assets/audio/game song.mp3" id="2_0jq8l"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_nvcm8")
 
 [node name="Sountrack" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_aypet")
+stream = ExtResource("2_0jq8l")
 volume_db = -5.0
+parameters/looping = true
