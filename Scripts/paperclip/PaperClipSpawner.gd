@@ -24,12 +24,12 @@ extends Node
 ]
 
 var clip_scenes = [
-	preload("res://Scenes/paperclips/paper_clip1.tscn"),
-	preload("res://Scenes/paperclips/paper_clip2.tscn"),
-	preload("res://Scenes/paperclips/paper_clip3.tscn"),
-	preload("res://Scenes/paperclips/paper_clip4.tscn"),
-	preload("res://Scenes/paperclips/paper_clip5.tscn"),
-	preload("res://Scenes/paperclips/paper_clip6.tscn")
+	preload("res://Scenes/paperClips/paper_clip1.tscn"),
+	preload("res://Scenes/paperClips/paper_clip2.tscn"),
+	preload("res://Scenes/paperClips/paper_clip3.tscn"),
+	preload("res://Scenes/paperClips/paper_clip4.tscn"),
+	preload("res://Scenes/paperClips/paper_clip5.tscn"),
+	preload("res://Scenes/paperClips/paper_clip6.tscn")
 ]
 
 signal game_finished
