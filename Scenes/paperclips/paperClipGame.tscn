@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://ck25ir4khvoef"]
 
 [ext_resource type="Texture2D" uid="uid://cua0uuyuf13t0" path="res://assets/paperclip/pozadina.png" id="1_s661j"]
-[ext_resource type="Script" path="res://Scripts/paperclip/PaperclipBox.gd" id="2_e34rp"]
-[ext_resource type="Script" path="res://Scripts/paperclip/PaperClipSpawner.gd" id="3_feo5l"]
+[ext_resource type="Script" uid="uid://bujxjlqgkvxsc" path="res://Scripts/paperclip/PaperclipBox.gd" id="2_e34rp"]
+[ext_resource type="Script" uid="uid://bfu1scdyppudw" path="res://Scripts/paperclip/PaperClipSpawner.gd" id="3_feo5l"]
 [ext_resource type="AudioStream" uid="uid://bq5dem70kxweu" path="res://assets/audio/spajalica1.mp3" id="4_g7af7"]
 [ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="5_7e66d"]
 [ext_resource type="Texture2D" uid="uid://denerleaekjru" path="res://assets/tasks/paperclips.png" id="6_ssd6k"]

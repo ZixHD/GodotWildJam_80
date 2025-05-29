@@ -1,9 +1,9 @@
 [gd_scene load_steps=27 format=3 uid="uid://byy1qi0qg54g"]
 
-[ext_resource type="Script" path="res://Scripts/document/StampGame.gd" id="1_me3ql"]
+[ext_resource type="Script" uid="uid://xjxohtukp0ry" path="res://Scripts/document/StampGame.gd" id="1_me3ql"]
 [ext_resource type="Texture2D" uid="uid://7301ehrux6gc" path="res://assets/stamp/pozadina.png" id="1_sax3r"]
 [ext_resource type="PackedScene" uid="uid://bk8lcv0bngid" path="res://Scenes/documents/stamp.tscn" id="3_5nufv"]
-[ext_resource type="Script" path="res://Scripts/document/stamp.gd" id="4_6x2q5"]
+[ext_resource type="Script" uid="uid://84dy4muo6kxq" path="res://Scripts/document/stamp.gd" id="4_6x2q5"]
 [ext_resource type="Texture2D" uid="uid://bp8b1k84dr2om" path="res://assets/stamp/ruka/ruka1.png" id="5_2yo30"]
 [ext_resource type="Texture2D" uid="uid://dyxrnc8ngr8tf" path="res://assets/stamp/ruka/ruka2.png" id="6_1xnqt"]
 [ext_resource type="Texture2D" uid="uid://b8jvxur4scar8" path="res://assets/stamp/ruka/ruka3.png" id="7_p716q"]
@@ -70,9 +70,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ippe7"]
 _data = {
-"RESET": SubResource("Animation_kuvf8"),
-"glide": SubResource("Animation_2bu5i"),
-"press": SubResource("Animation_p52mb")
+&"RESET": SubResource("Animation_kuvf8"),
+&"glide": SubResource("Animation_2bu5i"),
+&"press": SubResource("Animation_p52mb")
 }
 
 [sub_resource type="Animation" id="Animation_wagmg"]
@@ -108,8 +108,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0svin"]
 _data = {
-"RESET": SubResource("Animation_wagmg"),
-"default": SubResource("Animation_vkahn")
+&"RESET": SubResource("Animation_wagmg"),
+&"default": SubResource("Animation_vkahn")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyjxx"]
@@ -146,7 +146,7 @@ script = ExtResource("4_6x2q5")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Stamp")
 libraries = {
-"": SubResource("AnimationLibrary_ippe7")
+&"": SubResource("AnimationLibrary_ippe7")
 }
 
 [node name="Documents" type="Node" parent="."]
@@ -160,7 +160,7 @@ texture = ExtResource("5_2yo30")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
 libraries = {
-"": SubResource("AnimationLibrary_0svin")
+&"": SubResource("AnimationLibrary_0svin")
 }
 
 [node name="Timer" type="Timer" parent="."]

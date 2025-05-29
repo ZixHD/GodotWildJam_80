@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://knfg6jxxwojk"]
 
 [ext_resource type="Texture2D" uid="uid://b4sdfr4vvvrjd" path="res://assets/labyrinth/background.png" id="1_5p2f2"]
-[ext_resource type="Script" path="res://Scripts/labyrinth/labyrinth.gd" id="1_5rp3t"]
+[ext_resource type="Script" uid="uid://cbd2bsm6tukb1" path="res://Scripts/labyrinth/labyrinth.gd" id="1_5rp3t"]
 [ext_resource type="Texture2D" uid="uid://dpja0qm440smo" path="res://assets/labyrinth/table.png" id="3_nrdej"]
 [ext_resource type="Texture2D" uid="uid://nk74uvl1o75q" path="res://assets/labyrinth/table 2.png" id="4_e8end"]
 [ext_resource type="Texture2D" uid="uid://cee3hd1r3t1t7" path="res://assets/labyrinth/table 3.png" id="5_mpoyl"]

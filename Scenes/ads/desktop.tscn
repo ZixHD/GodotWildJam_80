@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cumveq1av631r" path="res://assets/desktop/savefile-removebg-preview.png" id="4_d53h7"]
 [ext_resource type="Texture2D" uid="uid://v4j7c3uc8iia" path="res://assets/desktop/explorer-removebg-preview.png" id="5_ujdu7"]
 [ext_resource type="Texture2D" uid="uid://bgkomtpl0ncwr" path="res://assets/desktop/trashbin-removebg-preview.png" id="6_qhrxp"]
-[ext_resource type="Script" path="res://Scripts/ad/AdSpawner.gd" id="7_3748g"]
+[ext_resource type="Script" uid="uid://dd7m3cjbd1g6n" path="res://Scripts/ad/AdSpawner.gd" id="7_3748g"]
 [ext_resource type="AudioStream" uid="uid://bsfq2gqlffixe" path="res://assets/audio/mouseclick.mp3" id="8_5jdv6"]
 [ext_resource type="Texture2D" uid="uid://cfob52lwmo61j" path="res://assets/tasks/nextGame.png" id="9_kg2i5"]
 [ext_resource type="Texture2D" uid="uid://d08levfxmj5di" path="res://assets/tasks/ads.png" id="10_g7ovo"]
@@ -35,8 +35,8 @@ loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_keoa3"]
 _data = {
-"odbrojavanje": SubResource("Animation_xjycy"),
-"stop": SubResource("Animation_jmray")
+&"odbrojavanje": SubResource("Animation_xjycy"),
+&"stop": SubResource("Animation_jmray")
 }
 
 [node name="MonitorGame" type="Node"]
@@ -138,7 +138,7 @@ show_percentage = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_keoa3")
+&"": SubResource("AnimationLibrary_keoa3")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

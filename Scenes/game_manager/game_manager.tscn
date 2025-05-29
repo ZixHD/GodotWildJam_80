@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://busud43ruwj0y"]
 
-[ext_resource type="Script" path="res://Scripts/game_manager/game_manager.gd" id="1_nvcm8"]
+[ext_resource type="Script" uid="uid://dio2eo2tvysax" path="res://Scripts/game_manager/game_manager.gd" id="1_nvcm8"]
 [ext_resource type="AudioStream" uid="uid://l367w3d73c2p" path="res://assets/audio/game song.mp3" id="2_0jq8l"]
 
 [node name="GameManager" type="Node"]

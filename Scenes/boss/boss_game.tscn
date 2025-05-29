@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cs1igtq2o7ghg"]
 
 [ext_resource type="Texture2D" uid="uid://bnqy0yyf3v4h8" path="res://assets/boss game/pozadina.png" id="1_giqrb"]
-[ext_resource type="Script" path="res://Scripts/boss/boss_game.gd" id="1_xep6s"]
+[ext_resource type="Script" uid="uid://0lrfau68cbxd" path="res://Scripts/boss/boss_game.gd" id="1_xep6s"]
 [ext_resource type="Texture2D" uid="uid://dh3r8wdecfpmy" path="res://assets/boss game/desktop.png" id="2_pgn5x"]
 [ext_resource type="Texture2D" uid="uid://cgjujbwublnp3" path="res://assets/boss game/monster1.png" id="3_wk70r"]
 [ext_resource type="Texture2D" uid="uid://16rs25b0pgqt" path="res://assets/boss game/monster2.png" id="4_l8kth"]

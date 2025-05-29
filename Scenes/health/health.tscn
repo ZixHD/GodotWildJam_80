@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ccdo0p4vffuq0"]
 
 [ext_resource type="Texture2D" uid="uid://d2pq6w3sg0s6n" path="res://assets/health/background.png" id="1_71gsu"]
-[ext_resource type="Script" path="res://Scripts/health/health.gd" id="1_g4whi"]
+[ext_resource type="Script" uid="uid://djw3t4avriu7" path="res://Scripts/health/health.gd" id="1_g4whi"]
 [ext_resource type="Texture2D" uid="uid://y5qabk1r7ocr" path="res://assets/health/heart3.png" id="2_4m0da"]
 [ext_resource type="Texture2D" uid="uid://b0nsgrk44fh8r" path="res://assets/menu/POZADINA.png" id="3_b6547"]
 [ext_resource type="Texture2D" uid="uid://h4rfbjj5fw0i" path="res://assets/health/heart2.png" id="3_mw7ly"]

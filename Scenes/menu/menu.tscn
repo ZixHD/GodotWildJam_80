@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dc1xisoib36g2" path="res://assets/menu/backround_menu.png" id="1_ksekj"]
 [ext_resource type="Texture2D" uid="uid://47vpd6uwir50" path="res://assets/menu/PlayQuitANIMS/quitANIM2.png" id="2_4kxb3"]
-[ext_resource type="Script" path="res://Scripts/menu/TextureButton.gd" id="3_ow8sb"]
+[ext_resource type="Script" uid="uid://dwutu2s8frqa2" path="res://Scripts/menu/TextureButton.gd" id="3_ow8sb"]
 [ext_resource type="Texture2D" uid="uid://bq0qsi0eshsgb" path="res://assets/menu/PlayQuitANIMS/playANIM1.png" id="4_gwo0w"]
 [ext_resource type="Texture2D" uid="uid://dmeyw22v6c0wt" path="res://assets/menu/PlayQuitANIMS/playANIM2.png" id="5_bkp56"]
 [ext_resource type="Texture2D" uid="uid://cfqmxosin5cjr" path="res://assets/menu/PlayQuitANIMS/quitANIM1.png" id="6_f2lah"]
 [ext_resource type="Texture2D" uid="uid://bung47hojgyhr" path="res://assets/stamp/LMAG.png" id="7_k282t"]
 [ext_resource type="AudioStream" uid="uid://bsfq2gqlffixe" path="res://assets/audio/mouseclick.mp3" id="9_uehar"]
-[ext_resource type="Script" path="res://Scripts/menu/AudioStreamPlayer.gd" id="10_xgc53"]
+[ext_resource type="Script" uid="uid://c1bmvky1ubvhk" path="res://Scripts/menu/AudioStreamPlayer.gd" id="10_xgc53"]
 
 [sub_resource type="Animation" id="Animation_5ywlx"]
 length = 2.0
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26i2j"]
 _data = {
-"RESET": SubResource("Animation_5ywlx"),
-"idle": SubResource("Animation_qbg0f")
+&"RESET": SubResource("Animation_5ywlx"),
+&"idle": SubResource("Animation_qbg0f")
 }
 
 [sub_resource type="Animation" id="Animation_v6qu2"]
@@ -82,8 +82,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p8x6r"]
 _data = {
-"RESET": SubResource("Animation_v6qu2"),
-"idle": SubResource("Animation_i35gk")
+&"RESET": SubResource("Animation_v6qu2"),
+&"idle": SubResource("Animation_i35gk")
 }
 
 [node name="Menu" type="Node"]
@@ -127,7 +127,7 @@ texture_normal = ExtResource("2_4kxb3")
 
 [node name="AnimationPlayer1" type="AnimationPlayer" parent="TextureRect/VBoxContainer/TextureButton1"]
 libraries = {
-"": SubResource("AnimationLibrary_26i2j")
+&"": SubResource("AnimationLibrary_26i2j")
 }
 
 [node name="TextureButton2" type="TextureButton" parent="TextureRect/VBoxContainer"]
@@ -137,7 +137,7 @@ texture_normal = ExtResource("6_f2lah")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="TextureRect/VBoxContainer/TextureButton2"]
 libraries = {
-"": SubResource("AnimationLibrary_p8x6r")
+&"": SubResource("AnimationLibrary_p8x6r")
 }
 
 [node name="Mute" type="TextureButton" parent="TextureRect"]

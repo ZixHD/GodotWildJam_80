@@ -1,6 +1,6 @@
 [gd_scene load_steps=77 format=3 uid="uid://brq8ko51sfmv"]
 
-[ext_resource type="Script" path="res://Scripts/coffee/coffee_game.gd" id="1_5r3oa"]
+[ext_resource type="Script" uid="uid://dykv33lvet2kx" path="res://Scripts/coffee/coffee_game.gd" id="1_5r3oa"]
 [ext_resource type="Texture2D" uid="uid://d1f7d8x086b80" path="res://assets/coffee_maker_minigame/background with maker/coffee minigame layout 1.png" id="2_rvnek"]
 [ext_resource type="Texture2D" uid="uid://cqo6mt5jvdlf5" path="res://assets/coffee_maker_minigame/assets/coffee maker.png" id="3_jie7v"]
 [ext_resource type="Texture2D" uid="uid://bkwnv8k8jkxdv" path="res://assets/coffee_maker_minigame/buttons/go 1.png" id="4_wpfcl"]
