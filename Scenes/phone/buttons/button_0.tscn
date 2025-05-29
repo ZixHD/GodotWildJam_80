@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://unmadmwa2qnp"]
+
+[ext_resource type="Script" uid="uid://b8ys0o0iuytbv" path="res://Scripts/phone/button.gd" id="1_de7ly"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mobs"]
+radius = 19.0263
+
+[node name="Button0" type="Node2D"]
+script = ExtResource("1_de7ly")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7mobs")
+
+[connection signal="input_event" from="Area2D" to="." method="button0"]
