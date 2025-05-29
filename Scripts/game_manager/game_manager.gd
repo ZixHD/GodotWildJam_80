@@ -16,7 +16,7 @@ var multiplyer = 1;
 var highscore = 0;
 var health_scene_instance: Node = null
 var game_array = [
-	PHONE_GAME
+	 AD_GAME, COFFEE_GAME, STAMP_GAME, PAPER_CLIP_GAME, BOSS_GAME, LABYRINTH, PHONE_GAME
 ]
 var shuffled_games = []
 var current_game_index = 0
