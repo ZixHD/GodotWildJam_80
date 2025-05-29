@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tppp6ki73dm8"
-path="res://.godot/imported/labyrint.png-77ff86944539fa5feabf05cf68a02bd3.ctex"
+uid="uid://gtifxl0t764t"
+path="res://.godot/imported/number4.png-c0ec81d7fec8366a721553ea0c3d282c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tasks/labyrint.png"
-dest_files=["res://.godot/imported/labyrint.png-77ff86944539fa5feabf05cf68a02bd3.ctex"]
+source_file="res://assets/phone calls/number4.png"
+dest_files=["res://.godot/imported/number4.png-c0ec81d7fec8366a721553ea0c3d282c.ctex"]
 
 [params]
 

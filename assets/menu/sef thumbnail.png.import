@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tppp6ki73dm8"
-path="res://.godot/imported/labyrint.png-77ff86944539fa5feabf05cf68a02bd3.ctex"
+uid="uid://rbeh7wbtjvqk"
+path="res://.godot/imported/sef thumbnail.png-aff9bc34c4c9945a3e22e3328f2bdbc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tasks/labyrint.png"
-dest_files=["res://.godot/imported/labyrint.png-77ff86944539fa5feabf05cf68a02bd3.ctex"]
+source_file="res://assets/menu/sef thumbnail.png"
+dest_files=["res://.godot/imported/sef thumbnail.png-aff9bc34c4c9945a3e22e3328f2bdbc1.ctex"]
 
 [params]
 
